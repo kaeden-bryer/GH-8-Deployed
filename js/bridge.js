@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         x: trackWidth + 200, // start off screen
       },
       {
-        x: -300, // end off screen
+        x: -350, // end off screen
         duration: randomDuration,
         ease: "none",
         repeat: -1,
