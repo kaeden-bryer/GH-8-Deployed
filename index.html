@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grizzhacks 2026</title>
+
+        <link rel="stylesheet" href="css/global.css" />
+        <link rel="stylesheet" href="css/intro.css" />
+        <link rel="stylesheet" href="css/beach.css" />
+        <link rel="stylesheet" href="css/bridge.css" />
+    </head>
+    <body>
+        <div id="preloader">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">LOADING ASSETS...</div>
+        </div>
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-panel" id="modalPanel">
+                <button class="close-btn" onclick="closeModal()">✕</button>
+                <h2 id="modalTitle" style="margin-top: 0">Title</h2>
+                <div id="modalContent">Content goes here...</div>
+            </div>
+        </div>
+
+        <section id="scene-intro" class="full-screen">
+            <div class="intro-scale-wrapper">
+                <img
+                    src="assets/boat-asset.png"
+                    class="boat-bg"
+                    alt="Boat Deck"
+                />
+                <div class="boat-content">
+                    <img
+                        src="assets/frog.svg"
+                        class="frog-element"
+                        alt="Frog"
+                    />
+                </div>
+            </div>
+
+            <div class="intro-title-container">
+                <h1 class="main-title">GRIZZHACKS</h1>
+                <h2 class="sub-title">The Beach Episode</h2>
+            </div>
+        </section>
+
+        <section id="scene-beach">
+            <div class="beach-page-1">
+                <h2 style="font-size: 3rem">THE BEACH</h2>
+                <p>Scroll down for tracks</p>
+            </div>
+            <div class="beach-page-2">
+                <h2>CHOOSE YOUR TRACK</h2>
+                <div class="track-container">
+                    <div
+                        class="popout-trigger track-red"
+                        onclick="openModal(this, 1)"
+                        data-title="TRACK 1: RED"
+                        data-content="Content..."
+                    >
+                        TRACK 1 (Red)
+                    </div>
+                    <div
+                        class="popout-trigger track-green"
+                        onclick="openModal(this, 2)"
+                        data-title="TRACK 2: GREEN"
+                        data-content="Content..."
+                    >
+                        TRACK 2 (Green)
+                    </div>
+                    <div
+                        class="popout-trigger track-blue"
+                        onclick="openModal(this, 3)"
+                        data-title="TRACK 3: BLUE"
+                        data-content="Content..."
+                    >
+                        TRACK 3 (Blue)
+                    </div>
+                    <div
+                        class="popout-trigger track-purple"
+                        onclick="openModal(this, 4)"
+                        data-title="TRACK 4: PURPLE"
+                        data-content="Content..."
+                    >
+                        TRACK 4 (Purple)
+                    </div>
+                </div>
+            </div>
+            <div class="beach-page-3">
+                <h2 style="font-size: 3rem">SOME OTHER BEACH</h2>
+                <p>Scroll down for sponsors</p>
+            </div>
+        </section>
+
+        <section id="horizontal-scroll-wrapper">
+            <div class="horizontal-track">
+                <div class="log-stream">
+                    <div class="log-item" style="top: 15%"></div>
+                    <div class="log-item" style="top: 35%"></div>
+                    <div class="log-item" style="top: 55%"></div>
+                    <div class="log-item" style="top: 75%"></div>
+                    <div class="log-item" style="top: 90%"></div>
+                </div>
+
+                <div
+                    class="panel-river flex-center"
+                    style="flex-direction: column"
+                >
+                    <h2>THE RIVER</h2>
+                    <p>Scroll -> to cross</p>
+                </div>
+                <div class="panel-bridge">
+                    <div class="bridge-container">
+                        <div class="plank-dummy"></div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 1)"
+                            data-title="Q1"
+                            data-content="A1..."
+                        >
+                            Question 1
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 2)"
+                            data-title="Q2"
+                            data-content="A2..."
+                        >
+                            Question 2
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 3)"
+                            data-title="Q3"
+                            data-content="A3..."
+                        >
+                            Question 3
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 4)"
+                            data-title="Q4"
+                            data-content="A4..."
+                        >
+                            Question 4
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 5)"
+                            data-title="Q5"
+                            data-content="A5..."
+                        >
+                            Question 5
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 6)"
+                            data-title="Q6"
+                            data-content="A6..."
+                        >
+                            Question 6
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 7)"
+                            data-title="Q7"
+                            data-content="A7..."
+                        >
+                            Question 7
+                        </div>
+                        <div
+                            class="plank-btn"
+                            onclick="openModal(this, 8)"
+                            data-title="Q8"
+                            data-content="A8..."
+                        >
+                            Question 8
+                        </div>
+                        <div class="plank-dummy"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-jungle" class="full-screen flex-center">
+            <h1>Jungle</h1>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/intro.js"></script>
+        <script src="js/bridge.js"></script>
+    </body>
+</html>

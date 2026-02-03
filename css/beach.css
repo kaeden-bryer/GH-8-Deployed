@@ -1,0 +1,79 @@
+#scene-beach {
+    height: 300vh;
+    background: linear-gradient(
+        to bottom,
+        #4fc3f7 0%,
+        #fff176 20%,
+        #ffcc80 100%
+    );
+    color: black;
+    position: relative;
+}
+
+.beach-page-1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.beach-page-2 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.beach-page-3 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.track-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popout-trigger {
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: left;
+    position: relative;
+}
+
+.popout-trigger:hover {
+    transform: scale(1.02);
+}
+.popout-trigger::after {
+    content: "Click to view >";
+    position: absolute;
+    right: 20px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* Colors */
+.track-red {
+    background-color: #e53935;
+}
+.track-green {
+    background-color: #43a047;
+}
+.track-blue {
+    background-color: #1e88e5;
+}
+.track-purple {
+    background-color: #8e24aa;
+}

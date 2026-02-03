@@ -1,0 +1,106 @@
+/* import rubik font */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap");
+
+#scene-intro {
+    background-color: #0277bd;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.intro-scale-wrapper {
+    position: relative;
+    /* use viewport width to ensure container fills screen width */
+    width: 100vw;
+    height: auto;
+
+    /* hardware acceleration to prevent animation stutter */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.boat-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.boat-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.frog-element {
+    position: absolute;
+    /* responsive sizing so frog stays relative to boat width */
+    width: 7%;
+    min-width: 120px; /* base size for small screens */
+    max-width: 300px; /* limit size for large monitors */
+    left: 30%;
+    top: 36%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* --- title styles --- */
+.intro-title-container {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    /* ignore mouse clicks to prevent blocking interaction below */
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    will-change: opacity;
+}
+
+.main-title {
+    font-family: "Rubik", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 10rem);
+    color: #002b5c;
+    margin: 0;
+    line-height: 0.9;
+}
+
+.sub-title {
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    color: #002b5c;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+/* desktop layout */
+@media (min-width: 769px) {
+    .intro-title-container {
+        top: 50%;
+        right: 10%;
+        transform: translateY(-50%);
+        text-align: right;
+    }
+}
+
+/* mobile layout */
+@media (max-width: 768px) {
+    .intro-title-container {
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
+    .intro-scale-wrapper {
+        width: 150vw; /* zoom in slightly more on mobile for better visibility */
+    }
+}
