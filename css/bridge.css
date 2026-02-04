@@ -41,10 +41,23 @@
 .log-item {
   position: absolute;
   width: 350px;
-  height: 80px;
-  background-color: #5d4037;
-  border-radius: 20px;
-  opacity: 0.9;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.oucu {
+  background-image: url("../assets/sponsors/log_OUCU.svg");
+}
+.intrepid {
+  background-image: url("../assets/sponsors/log_Intrepid.svg");
+}
+.retail {
+  background-image: url("../assets/sponsors/log_365.svg");
+}
+.stellantis {
+  background-image: url("../assets/sponsors/log_stellantis.svg");
 }
 
 .bridge-container {
