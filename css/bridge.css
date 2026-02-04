@@ -69,10 +69,12 @@
 
 .surfing-frog {
   background-image: url("../assets/sponsors/surfing-frog.svg");
+  transform: scaleX(-1);
 }
 
 .surfing-crab {
   background-image: url("../assets/sponsors/surfing-crab.svg");
+  transform: scaleX(-1);
 }
 
 .oucu {
