@@ -47,7 +47,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(-6px 8px 4px rgba(0, 0, 0, 0.1));
     transition: transform 0.2s;
     text-align: left;
     position: relative;
@@ -65,9 +65,9 @@
 }
 
 /* Colors */
-.track-red {
+/* .track-red {
     background-color: #e53935;
-}
+} */
 .track-green {
     background-color: #43a047;
 }
