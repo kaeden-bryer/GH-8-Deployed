@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   font-family: system-ui, sans-serif;
-  padding-top: clamp(10px, 1.8vw, 22px);
+  padding-top: clamp(4vw, 4vw, 6vw);
   font-size: clamp(16px, 2.2vw, 24px);
   font-weight: 700;
   color: #0b0b0b;
