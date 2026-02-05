@@ -24,18 +24,6 @@
     align-items: center;
     flex-direction: column;
 }
-.schedule {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    background-image: url(../assets/schedule/Blue_Towel.svg);
-    background-size: 28vw;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .track-container {
     width: 80%;

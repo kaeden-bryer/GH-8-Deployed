@@ -1,0 +1,19 @@
+.schedule {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-image: 
+        url("../assets/schedule/Blue_Towel.svg"),
+        url("../assets/schedule/Red_Towel.svg");
+    background-position-x: 25%, 75%;
+    background-repeat: no-repeat;
+    /* background-size: 30%; */
+    /* mask-image: 
+        url("../assets/schedule/Blue_Towel.svg"),
+        url("../assets/schedule/Red_Towel.svg");
+    mask-position: 25%, 75%;
+    mask-repeat: no-repeat; */
+}
