@@ -352,12 +352,11 @@
 .plank-placeholder {
     position: relative;
     width: 100%;
-    opacity: 0.4;
     pointer-events: none;
     overflow: hidden;
-    /* Plank aspect ratio is 390:61, quarter height = 61/4 = 15.25 relative to 390 width */
+    /* Plank aspect ratio is 390:61, quarter height = 61/4 = 15.25 relative to 390 width
     /* aspect-ratio: 390 / 15.25 ≈ 25.57 */
-    aspect-ratio: 390 / 15;
+    aspect-ratio: 8;
 }
 
 .plank-placeholder .bridge-plank-img {
@@ -375,26 +374,4 @@
 /* Bottom placeholder - show only top quarter */
 .plank-placeholder-bottom .bridge-plank-img {
     top: 0;
-}
-
-/* Fade overlays to hide overflow into other sections */
-.bridge-scroll-container::before,
-.bridge-scroll-container::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 80px;
-    z-index: 25;
-    pointer-events: none;
-}
-
-.bridge-scroll-container::before {
-    top: 0;
-    background: linear-gradient(to bottom, #29b6f6 0%, transparent 100%);
-}
-
-.bridge-scroll-container::after {
-    bottom: 0;
-    background: linear-gradient(to top, #29b6f6 0%, transparent 100%);
 }
