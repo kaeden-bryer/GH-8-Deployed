@@ -9,10 +9,11 @@
 /* Colors */
 .pink-surfboard {
     text-align: center;
-    text
+    color: rgba(184, 33, 71, 0.768);
 }
 .green-surfboard {
-    background-color: #43a047;
+    text-align: center;
+    color: rgba(35, 75, 29, 0.768);
 }
 .purple-surfboard {
     background-color: #1e88e5;
@@ -23,15 +24,14 @@
 
 .overlay-text {
     position: absolute; /* Position text over the image */
-    top: 50%; /* Center vertically */
+    top: 37%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* center */
-    color: rgb(174, 124, 58);
     font-family: 'Quicksand', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     
     padding: 10px;
-    filter: drop-shadow(-6px 8px 4px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(-5px 7px 4px rgba(0, 0, 0, 0.2));
 
 }
