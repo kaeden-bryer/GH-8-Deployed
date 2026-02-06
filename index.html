@@ -190,73 +190,25 @@
                 </div>
                 </div>
                 <div class="panel-bridge">
-                    <div class="bridge-container">
-                        <div class="plank-dummy"></div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 1)"
-                            data-title="Q1"
-                            data-content="A1..."
-                        >
-                            Question 1
+                    <!-- Bridge supports (fixed, not affected by scroll) -->
+                    <img src="assets/bridge-support.svg" class="bridge-support bridge-support-left" alt="Bridge Support" />
+                    <img src="assets/bridge-support.svg" class="bridge-support bridge-support-right" alt="Bridge Support" />
+                    
+                    <div class="bridge-scroll-container">
+                        <div class="bridge-container">
+                            <!-- Placeholder plank at top (shows bottom quarter) -->
+                            <div class="plank-placeholder plank-placeholder-top">
+                                <img src="assets/bridge-plank.svg" class="bridge-plank-img" alt="Bridge Plank" />
+                            </div>
+                            
+                            <!-- Planks loaded from data/faq.json -->
+                            <div id="bridge-planks"></div>
+                            
+                            <!-- Placeholder plank at bottom (shows top quarter) -->
+                            <div class="plank-placeholder plank-placeholder-bottom">
+                                <img src="assets/bridge-plank.svg" class="bridge-plank-img" alt="Bridge Plank" />
+                            </div>
                         </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 2)"
-                            data-title="Q2"
-                            data-content="A2..."
-                        >
-                            Question 2
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 3)"
-                            data-title="Q3"
-                            data-content="A3..."
-                        >
-                            Question 3
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 4)"
-                            data-title="Q4"
-                            data-content="A4..."
-                        >
-                            Question 4
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 5)"
-                            data-title="Q5"
-                            data-content="A5..."
-                        >
-                            Question 5
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 6)"
-                            data-title="Q6"
-                            data-content="A6..."
-                        >
-                            Question 6
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 7)"
-                            data-title="Q7"
-                            data-content="A7..."
-                        >
-                            Question 7
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 8)"
-                            data-title="Q8"
-                            data-content="A8..."
-                        >
-                            Question 8
-                        </div>
-                        <div class="plank-dummy"></div>
                     </div>
                 </div>
             </div>
