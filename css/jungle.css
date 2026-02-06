@@ -1,0 +1,95 @@
+#scene-jungle {
+    position: relative;
+    overflow: hidden;
+}
+
+.plane {
+    position: absolute;
+    left: -320px;
+    bottom: -220px;
+    width: 1280px;
+    height: 880px;
+    background-image: url("../assets/jungle/BrokenPlane.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.suitcase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    background-image: url("../assets/jungle/Suitcase.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+
+.suitcase .passport-background {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 45px;
+    height: 90px;
+    background-color: #1e66d0;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.suitcase .passport-page {
+    position: absolute;
+    left: 8px;
+    width: 29px;
+    height: 36px;
+    background-color: #f5f8ff;
+    border-radius: 6px;
+}
+
+.suitcase .passport-page-left {
+    top: 6px;
+}
+
+.suitcase .passport-page-right {
+    bottom: 6px;
+}
+
+.suitcase .suitcase-zoom-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    padding: 14px 18px;
+    border: 2px solid #0d3d8a;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0d3d8a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    width: 90px;
+    height: 45px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .suitcase .suitcase-zoom-trigger {
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%) rotate(-90deg);
+    }
+
+    .suitcase .suitcase-zoom-trigger:hover {
+        transform: translateX(-50%) rotate(-90deg) scale(1.03);
+    }
+}
