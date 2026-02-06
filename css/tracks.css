@@ -1,3 +1,9 @@
+.trackTitle {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 40px;
+    color: rgba(42, 27, 6, 0.768);
+}
+
 .surfboard-container {
     width: 80%;
     max-width: 600px;
@@ -30,7 +36,7 @@
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* center */
     font-family: 'Quicksand', sans-serif;
-    font-size: 30px;
+    font-size: 27px;
     text-align: center;
     
     padding: 10px;
