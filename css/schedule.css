@@ -118,3 +118,34 @@
     width: 0;
     height: 0; 
 }
+
+/* mobile view */
+@media (max-width: 768px) {
+  .schedule {
+    height: auto;
+    min-height: 100vh;
+    padding: 24px 0;
+  }  
+
+  .schedule-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .towel-grid {
+    grid-template: 1fr;
+    width: 94vw;
+    gap: 22px;
+  }
+
+  .towel {
+    max-width: 92vw;
+  }
+
+  .stripe-layer {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+}
