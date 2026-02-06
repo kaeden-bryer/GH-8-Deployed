@@ -43,13 +43,21 @@
   background-position: center;
   background-size: contain;
   pointer-events: none;
-  z-index: 1; /* behind boats */
 }
 
 .wave {
+  z-index: 1; /* behind boats */
   width: clamp(140px, 22vw, 320px);
   height: clamp(35px, 6vw, 80px);
   background-image: url("../assets/sponsors/wave.svg");
+}
+
+.surfing-crab {
+  z-index: 2;
+  width: clamp(140px, 22vw, 320px);
+  height: clamp(35px, 6vw, 80px);
+  background-image: url("../assets/sponsors/surfing-crab.svg");
+  transform: scaleX(-1);
 }
 
 /* Logic for keeping waves in the river */
@@ -62,16 +70,14 @@
   top: calc(var(--blue-top) + (var(--lane-y, 0) * var(--blue-height)));
 }
 
-.surfing-frog {
-  width: clamp(90px, 12vw, 170px);
-  height: clamp(70px, 10vw, 140px);
-  background-image: url("../assets/sponsors/surfing-frog.svg");
-  transform: scaleX(-1);
+.float-item.surfing-crab {
+  top: calc(var(--blue-top) + (var(--lane-y, 0) * var(--blue-height)));
 }
 
-.surfing-crab {
-  background-image: url("../assets/sponsors/surfing-crab.svg");
-  transform: scaleX(-1);
+@media (max-width: 520px) {
+  .float-item.surfing-crab {
+    display: none;
+  }
 }
 
 .boat-grid {
