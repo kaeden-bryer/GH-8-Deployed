@@ -1,0 +1,119 @@
+.schedule {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.schedule-title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.towel-grid {
+  width: min(94vw);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 28px;
+  align-items: center;
+  justify-items: center;
+}
+
+.towel {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 5;
+  position: relative;
+  overflow: visible;
+}
+
+.towel--blue {
+  background: url("../assets/schedule/Blue_Towel.svg") center / contain no-repeat;
+  mask-image: url("../assets/schedule/Blue_Towel.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.towel--red {
+  background: url("../assets/schedule/Red_Towel.svg") center / contain no-repeat;
+  mask-image: url("../assets/schedule/Red_Towel.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.towel-header,
+.towel-footer,
+.towel-window {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.towel-header {
+  top: 0;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  padding-top: clamp(4vw, 4vw, 6vw);
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 700;
+  color: #0b0b0b;
+  pointer-events: none;
+}
+
+.towel-footer {
+  bottom: 0;
+  height: 15%;
+  pointer-events: none;
+}
+
+.towel-window {
+  top: 17%;
+  bottom: 15%;
+  overflow: hidden;
+}
+
+/* stripes go edge-to-edge */
+.stripe-layer {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  pointer-events: auto;
+}
+
+.towel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: system-ui, sans-serif;
+  color: #0b0b0b;
+}
+
+/* row stripes that scroll with rows */
+.towel-table tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.towel-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0);
+}
+
+.time {
+  display: inline-block;
+  width: 92px; 
+  opacity: 0.9;
+}
+
+.row-text {
+    padding: 1vw 5vw;
+}
+
+.stripe-layer::-webkit-scrollbar { 
+    width: 0;
+    height: 0; 
+}

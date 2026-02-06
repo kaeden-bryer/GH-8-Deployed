@@ -24,14 +24,6 @@
     align-items: center;
     flex-direction: column;
 }
-.beach-page-3 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-}
 
 .track-container {
     width: 80%;
