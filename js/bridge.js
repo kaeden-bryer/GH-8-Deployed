@@ -84,6 +84,53 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  // Chat generated slop to get waves working bc I'm dumb
+  const speedPxPerSec = 220;
+  const gapPx = 1500;
+  const startPad = 200;
+  const endPad = 350;
+
+  const waves = gsap.utils.toArray(".float-item.wave");
+
+  // group waves by lane (same top)
+  const lanes = waves.reduce((acc, el) => {
+    const top = el.style.top || getComputedStyle(el).top;
+    (acc[top] ||= []).push(el);
+    return acc;
+  }, {});
+
+  Object.values(lanes).forEach((laneEls, laneIndex) => {
+    const laneSpeed = speedPxPerSec * (1 + laneIndex * 0.04);
+
+    const travel = trackWidth + startPad + endPad;
+    const duration = travel / laneSpeed;
+
+    // 🔑 lane phase offset (this is the magic)
+    const lanePhase = laneIndex * gapPx * 0.6;
+
+    laneEls.forEach((el, i) => {
+      gsap.set(el, {
+        x: trackWidth + startPad + i * gapPx + lanePhase,
+      });
+    });
+
+    laneEls.forEach((el) => {
+      gsap.to(el, {
+        x: `-=${travel}`,
+        duration,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: (x) => {
+            const v = parseFloat(x);
+            const wrapped = ((v + travel) % travel) - endPad;
+            return wrapped + "px";
+          },
+        },
+      });
+    });
+  });
+
   // ============ BRIDGE FUNCTIONALITY ============
 
   // Load FAQ planks from data/faq.json
