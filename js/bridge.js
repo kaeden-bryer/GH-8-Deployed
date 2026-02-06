@@ -62,15 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastProgress = 0;
 
   // log autoscroller
-  const logs = document.querySelectorAll(".log-item");
+  const float_items = document.querySelectorAll(".float-item");
   const trackWidth = window.innerWidth * 2;
 
-  logs.forEach((log) => {
+  float_items.forEach((float_item) => {
     const randomDuration = 10 + Math.random() * 8;
     const randomDelay = Math.random() * 5;
 
     gsap.fromTo(
-      log,
+      float_item,
       {
         x: trackWidth + 200, // start off screen
       },

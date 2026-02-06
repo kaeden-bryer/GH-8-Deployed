@@ -6,17 +6,20 @@ ScrollTrigger.normalizeScroll(true);
 // ignore mobile resize
 ScrollTrigger.config({ ignoreMobileResize: true });
 
-// 1. INITIALIZE LENIS (global for use in other scripts)
-window.lenis = new Lenis({
+// 1. INITIALIZE LENIS
+const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom ease for smoother stop
   smoothWheel: true,
 });
 
-window.lenis.on("scroll", ScrollTrigger.update);
+// Make lenis globally accessible
+window.lenis = lenis;
+
+lenis.on("scroll", ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
-  window.lenis.raf(time * 1000);
+  lenis.raf(time * 1000);
 });
 
 gsap.ticker.lagSmoothing(0);
@@ -74,12 +77,12 @@ window.openModal = function (element, index) {
 
   void modalPanel.offsetWidth;
   modalOverlay.classList.add("active");
-  window.lenis.stop(); // stop scroll
+  lenis.stop(); // stop scroll
 };
 
 window.closeModal = function () {
   modalOverlay.classList.remove("active");
-  window.lenis.start(); // resume scroll
+  lenis.start(); // resume scroll
 };
 
 modalOverlay.addEventListener("click", (e) => {
