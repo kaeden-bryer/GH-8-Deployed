@@ -13,6 +13,9 @@ const lenis = new Lenis({
   smoothWheel: true,
 });
 
+// Make lenis globally accessible
+window.lenis = lenis;
+
 lenis.on("scroll", ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
@@ -85,3 +88,4 @@ window.closeModal = function () {
 modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
 });
+
