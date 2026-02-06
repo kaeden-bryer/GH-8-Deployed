@@ -9,21 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
             (e) => {
                 const delta = e.deltaY;
 
-                const atTop = el.scrollTop <= 0;
-                const atBottom =
-                    el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+                // const atTop = el.scrollTop <= 0;
+                // const atBottom =
+                    // el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
 
                 const scrollingUp = delta < 0;
                 const scrollingDown = delta > 0;
                 
-                const canScrollUp = !atTop;
-                const canScrollDown = !atBottom;
+                // const canScrollUp = !atTop;
+                // const canScrollDown = !atBottom;
 
                 const shouldConsume =
-                    (scrollingUp && canScrollUp) || (scrollingDown && canScrollDown);
+                    (scrollingDown || scrollingUp);
                 
                 // Stop Lenis when scrolling inside the table
-                if (shouldConsume && window.lenis && !isMouseInside) {
+                if (window.lenis && !isMouseInside) {
                     window.lenis.stop();
                     isMouseInside = true;
                 }
