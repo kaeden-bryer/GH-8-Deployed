@@ -33,30 +33,62 @@
 .suitcase .passport-background {
     position: absolute;
     top: 50%;
-    left: 30%;
-    width: 45px;
-    height: 90px;
+    left: 27%;
+    width: 90px;
+    height: 65px;
     background-color: #1e66d0;
     border-radius: 12px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(90deg);
     z-index: 2;
 }
 
 .suitcase .passport-page {
     position: absolute;
-    left: 8px;
-    width: 29px;
-    height: 36px;
+    top: 50%;
+    width: 40px;
+    height: 48px;
     background-color: #f5f8ff;
     border-radius: 6px;
+    transform: translateY(-50%);
+    transform-origin: center;
 }
 
 .suitcase .passport-page-left {
-    top: 6px;
+    left: 6px;
 }
 
 .suitcase .passport-page-right {
-    bottom: 6px;
+    right: 6px;
+}
+
+.suitcase .passport-backout-btn {
+    position: absolute;
+    left: 51%;
+    top: 1px;
+    bottom: auto;
+    transform: translateX(-50%) rotate(-180deg);
+    z-index: 5;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #000000;
+    font-family: inherit;
+    font-size: 0.20rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.suitcase.is-zoomed .passport-backout-btn {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .suitcase .suitcase-zoom-trigger {
@@ -91,5 +123,11 @@
 
     .suitcase .suitcase-zoom-trigger:hover {
         transform: translateX(-50%) rotate(-90deg) scale(1.03);
+    }
+
+    .suitcase .passport-backout-btn {
+        left: 50%;
+        top: 2px;
+        bottom: auto;
     }
 }

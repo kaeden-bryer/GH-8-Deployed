@@ -1,0 +1,130 @@
+{
+  "pages": [
+    {
+      "left": {
+        "picture": "assets/jungle/coords/sean.png",
+        "name": "Sean Collins",
+        "team": "President, Logistics",
+        "linkedin": "https://www.linkedin.com/in/alex-rivera"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/kaeden.png",
+        "name": "Kaeden Bryer",
+        "team": "Vice President, Sponsorship",
+        "linkedin": "https://www.linkedin.com/in/jordan-lee"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/devin.png",
+        "name": "Devin Meyer",
+        "team": "Design Team",
+        "linkedin": "https://www.linkedin.com/in/taylor-kim"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/rylee.png",
+        "name": "Rylee Marshall",
+        "team": "Mentor Team",
+        "linkedin": "https://www.linkedin.com/in/casey-patel"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/parasols.svg",
+        "name": "Travis Boyd",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/spencer.png",
+        "name": "Spencer Roeren",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/natalie.png",
+        "name": "Natalie Novak",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/sarahi.png",
+        "name": "Sarahi Augustin",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/roman.png",
+        "name": "Roman Blazhko",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/amanda.png",
+        "name": "Amanda Mackin",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/juancarlos.png",
+        "name": "Juan Carlos Maravilla",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/maria.png",
+        "name": "Maria Mastronardi",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/angel.png",
+        "name": "Angel Supetran",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/ruben.png",
+        "name": "Ruben Yutuc",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/jay.png",
+        "name": "Jay Marquez Febles",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "assets/jungle/coords/michael.png",
+        "name": "Michael Medulla",
+        "team": "Sponsorship Team",
+        "linkedin": "https://www.linkedin.com/in/riley-brooks"
+      }
+    },
+    {
+      "left": {
+        "picture": "assets/jungle/coords/patrick.png",
+        "name": "Patrick McInerney",
+        "team": "Operations Team",
+        "linkedin": "https://www.linkedin.com/in/morgan-chen"
+      },
+      "right": {
+        "picture": "",
+        "name": "",
+        "team": "",
+        "linkedin": ""
+      }
+    }
+  ]
+}
