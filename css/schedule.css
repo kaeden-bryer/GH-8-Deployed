@@ -12,6 +12,7 @@
 }
 
 .schedule-title {
+    font-family: 'Quicksand', sans-serif;
     font-size: 3rem;
     margin: 0;
 }
@@ -66,8 +67,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: system-ui, sans-serif;
-    padding-top: clamp(2.5vw, 2.5vw, 4vw);
+    font-family: 'Quicksand', sans-serif;    
+    padding-top: clamp(1.5vw, 7vw, 20px);
     font-size: clamp(16px, 2.2vw, 24px);
     font-weight: 700;
     color: #0b0b0b;
@@ -97,7 +98,8 @@
 .towel-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: system-ui, sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-size: larger;
     color: #0b0b0b;
 }
 
