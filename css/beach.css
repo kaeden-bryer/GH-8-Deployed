@@ -1,5 +1,7 @@
 #scene-beach {
-    height: 300vh;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
     background: linear-gradient(
         to bottom,
         #4fc3f7 0%,
@@ -8,21 +10,35 @@
     );
     color: black;
     position: relative;
+    /* flex column ensures children stack cleanly without collapsing margins */
+    display: flex;
+    flex-direction: column;
 }
 
-.beach-page-1 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+.beach-page-1,
 .beach-page-2 {
-    height: 100vh;
+    /* use min-height instead of height */
+    min-height: 100vh;
+    height: auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    /* add padding so content never hits the very edge on small screens */
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* ensure the surfboard container doesn't cause horizontal overflow or overlap */
+.surfboard-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0; /* breathing room */
 }
 
 .popout-trigger {
