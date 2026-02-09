@@ -2,12 +2,8 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background: linear-gradient(
-        to bottom,
-        #4fc3f7 0%,
-        #fff176 20%,
-        #ffcc80 100%
-    );
+    /* moved gradient to intro.css for better transition */
+    background: #ffcc80;
     color: black;
     position: relative;
     /* flex column ensures children stack cleanly without collapsing margins */
@@ -16,9 +12,11 @@
 }
 
 .beach-page-1 {
+    padding-top: 30px;
     height: 100vh;
-    position: relative;
+    position: relative; 
     overflow: hidden;
+    /* padding-top: 100px; */
 }
 
 /* Beach scene elements */
@@ -31,6 +29,7 @@
     width: auto;
     object-fit: contain;
     object-position: left center;
+    /* padding: 5px; */
 }
 
 .beach-volleyball {
@@ -70,6 +69,7 @@
     text-align: center;
     max-width: 620px;
     padding: 0 20px;
+    pointer-events: none;
 }
 
 .beach-intro-text h2 {
