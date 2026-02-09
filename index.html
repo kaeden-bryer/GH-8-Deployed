@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/beach.css" />
         <link rel="stylesheet" href="css/bridge.css" />
         <link rel="stylesheet" href="css/schedule.css" />
+        <link rel="stylesheet" href="css/jungle.css" />
         <link rel="stylesheet" href="css/tracks.css"/>
 
     </head>
@@ -240,7 +241,30 @@
         </section>
 
         <section id="scene-jungle" class="full-screen flex-center">
-            <h1>Jungle</h1>
+            <div class="plane"></div>
+            <div class="suitcase">
+                <button type="button" class="suitcase-zoom-trigger">Meet the team!</button>
+                <div class="passport-background">
+                    <div class="passport-page passport-page-left"></div>
+                    <div class="passport-page passport-page-right"></div>
+                    <button
+                        type="button"
+                        class="passport-nav passport-nav-prev"
+                        aria-label="Previous page"
+                    >
+                        &lt;
+                    </button>
+                    <button
+                        type="button"
+                        class="passport-nav passport-nav-next"
+                        aria-label="Next page"
+                    >
+                        &gt;
+                    </button>
+                    <div class="passport-page-index">1 / 1</div>
+                    <button type="button" class="passport-backout-btn">Back out</button>
+                </div>
+            </div>
         </section>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -252,5 +276,6 @@
         <script src="js/intro.js"></script>
         <script src="js/bridge.js"></script>
         <script src="js/schedule.js"></script>
+        <script src="js/jungle.js"></script>
     </body>
 </html>

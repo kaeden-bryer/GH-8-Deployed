@@ -1,0 +1,229 @@
+#scene-jungle {
+    position: relative;
+    overflow: hidden;
+}
+
+.plane {
+    position: absolute;
+    left: -320px;
+    bottom: -220px;
+    width: 1280px;
+    height: 880px;
+    background-image: url("../assets/jungle/BrokenPlane.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.suitcase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    background-image: url("../assets/jungle/Suitcase.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+
+.suitcase .passport-background {
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    width: 90px;
+    height: 65px;
+    background-color: #1e66d0;
+    border-radius: 12px;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 2;
+}
+
+.suitcase .passport-page {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 48px;
+    background-color: #f5f8ff;
+    border-radius: 6px;
+    transform: translateY(-50%);
+    transform-origin: center;
+}
+
+.suitcase .passport-card {
+    padding: 3px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
+.suitcase .passport-card-photo-frame {
+    width: 52%;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto 2px;
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.suitcase .passport-card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.suitcase .passport-card-name {
+    margin: 2px 0 1px;
+    font-size: 0.2rem;
+    line-height: 1.1;
+    color: #0d3d8a;
+    font-weight: 700;
+}
+
+.suitcase .passport-card-team {
+    margin: 0;
+    font-size: 0.16rem;
+    line-height: 1.15;
+    color: #10295a;
+}
+
+.suitcase .passport-card-link {
+    display: inline-block;
+    margin-top: auto;
+    font-size: 0.14rem;
+    line-height: 1.1;
+    color: #0d3d8a;
+    text-decoration: underline;
+}
+
+.suitcase .passport-page-left {
+    left: 6px;
+}
+
+.suitcase .passport-page-right {
+    right: 6px;
+}
+
+.suitcase .passport-nav {
+    position: absolute;
+    top: 2px;
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    background: transparent;
+    color: #0d3d8a;
+    font-family: inherit;
+    font-size: 0.12rem;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 6;
+    transform: rotate(-180deg);
+}
+
+.suitcase .passport-nav-prev {
+    right: 2px;
+}
+
+.suitcase .passport-nav-next {
+    left: 2px;
+}
+
+.suitcase .passport-page-index {
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+    transform: translateX(-50%) rotate(-180deg);
+    font-size: 0.16rem;
+    color: #e7f0ff;
+    z-index: 6;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.suitcase .passport-backout-btn {
+    position: absolute;
+    left: 51%;
+    top: 1px;
+    bottom: auto;
+    transform: translateX(-50%) rotate(-180deg);
+    z-index: 5;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #000000;
+    font-family: inherit;
+    font-size: 0.20rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.suitcase.is-zoomed .passport-backout-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.suitcase .suitcase-zoom-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    padding: 14px 18px;
+    border: 2px solid #0d3d8a;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #0d3d8a;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    width: 90px;
+    height: 45px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .suitcase .suitcase-zoom-trigger {
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%) rotate(-90deg);
+    }
+
+    .suitcase .suitcase-zoom-trigger:hover {
+        transform: translateX(-50%) rotate(-90deg) scale(1.03);
+    }
+
+    .suitcase .passport-backout-btn {
+        left: 50%;
+        top: 2px;
+        bottom: auto;
+    }
+}
