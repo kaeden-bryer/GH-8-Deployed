@@ -35,11 +35,11 @@
 
 .beach-crab {
     position: absolute;
-    right: 5%;
-    top: 8%;
+    right: 10%;
+    top: 2%;
     width: clamp(100px, 12vw, 180px);
     height: auto;
-    transform: perspective(800px) rotateY(-8deg) rotateX(4deg);
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg) rotateZ(45deg);
     will-change: transform;
 }
 
