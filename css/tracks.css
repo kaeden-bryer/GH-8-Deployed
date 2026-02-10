@@ -1,6 +1,6 @@
 .trackTitle {
     font-family: 'Quicksand', sans-serif;
-    font-size: 40px;
+    font-size: 3rem;
     color: rgba(42, 27, 6, 0.768);
 }
 
@@ -58,8 +58,8 @@
     }
 
     .overlay-text {
-        font-size: 21px;
-        top: 37%
+        font-size: 20px;
+        top: 38%
 
     }
 }
