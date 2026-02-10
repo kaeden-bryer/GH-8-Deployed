@@ -152,20 +152,6 @@
     opacity: 0.7;
 }
 
-/* Colors */
-.track-red {
-    background-color: #e53935;
-}
-.track-green {
-    background-color: #43a047;
-}
-.track-blue {
-    background-color: #1e88e5;
-}
-.track-purple {
-    background-color: #8e24aa;
-}
-
 @media (max-width: 768px) {
     /* Switch page to flex column */
     .beach-page-1 {
