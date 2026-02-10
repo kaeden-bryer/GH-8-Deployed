@@ -95,7 +95,7 @@
     flex-direction: column;
 
     /* add padding so content never hits the very edge on small screens */
-    padding: 40px 20px;
+    padding: 130px 20px;
     box-sizing: border-box;
 }
 

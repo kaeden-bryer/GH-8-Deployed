@@ -8,7 +8,7 @@
     align-items: center;
     gap: 20px;
     /* add padding to prevent cutting off on small screens */
-    padding: 60px 0;
+    padding: 0 0 190px;
 }
 
 .schedule-title {
