@@ -1,36 +1,112 @@
 #scene-beach {
-    height: 300vh;
-    background: linear-gradient(
-        to bottom,
-        #4fc3f7 0%,
-        #fff176 20%,
-        #ffcc80 100%
-    );
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    /* moved gradient to intro.css for better transition */
+    background: #ffcc80;
     color: black;
     position: relative;
+    /* flex column ensures children stack cleanly without collapsing margins */
+    display: flex;
+    flex-direction: column;
 }
 
 .beach-page-1 {
+    padding-top: 30px;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.beach-page-2 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: relative; 
+    overflow: hidden;
+    /* padding-top: 100px; */
 }
 
-.track-container {
+/* Beach scene elements */
+.beach-volleynet {
+    position: absolute;
+    left: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+    /* padding: 5px; */
+}
+
+.beach-volleyball {
+    position: absolute;
+    left: 12%;
+    bottom: 12%;
+    width: clamp(60px, 6vw, 100px);
+    height: auto;
+    cursor: pointer;
+    will-change: transform;
+}
+
+.beach-crab {
+    position: absolute;
+    right: 5%;
+    top: 8%;
+    width: clamp(100px, 12vw, 180px);
+    height: auto;
+    transform: perspective(800px) rotateY(-8deg) rotateX(4deg);
+    will-change: transform;
+}
+
+.beach-parasols {
+    position: absolute;
+    right: -2%;
+    bottom: -2%;
+    width: clamp(450px, 55vw, 750px);
+    height: auto;
+    pointer-events: none;
+}
+
+.beach-intro-text {
+    position: absolute;
+    left: 38%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 620px;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.beach-intro-text h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1rem;
+    color: #4a4a4a;
+}
+
+.beach-intro-text p {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+.beach-page-2 {
+    /* use min-height instead of height */
+    min-height: 100vh;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* add padding so content never hits the very edge on small screens */
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* ensure the surfboard container doesn't cause horizontal overflow or overlap */
+.surfboard-container {
     width: 80%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 20px 0; /* breathing room */
 }
 
 .popout-trigger {
@@ -39,7 +115,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(-6px 8px 4px rgba(0, 0, 0, 0.1));
     transition: transform 0.2s;
     text-align: left;
     position: relative;
@@ -49,23 +125,8 @@
     transform: scale(1.02);
 }
 .popout-trigger::after {
-    content: "Click to view >";
     position: absolute;
     right: 20px;
     font-size: 0.8em;
     opacity: 0.7;
-}
-
-/* Colors */
-.track-red {
-    background-color: #e53935;
-}
-.track-green {
-    background-color: #43a047;
-}
-.track-blue {
-    background-color: #1e88e5;
-}
-.track-purple {
-    background-color: #8e24aa;
 }

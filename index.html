@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="css/bridge.css" />
         <link rel="stylesheet" href="css/schedule.css" />
         <link rel="stylesheet" href="css/jungle.css" />
+        <link rel="stylesheet" href="css/tracks.css"/>
+
     </head>
     <body>
         <div id="preloader">
@@ -20,7 +22,7 @@
         <div class="modal-overlay" id="modalOverlay">
             <div class="modal-panel" id="modalPanel">
                 <button class="close-btn" onclick="closeModal()">✕</button>
-                <h2 id="modalTitle" style="margin-top: 0">Title</h2>
+                <h1 id="modalTitle" style="margin-top: 0">Title</h1>
                 <div id="modalContent">Content goes here...</div>
             </div>
         </div>
@@ -49,43 +51,66 @@
 
         <section id="scene-beach">
             <div class="beach-page-1">
-                <h2 style="font-size: 3rem">THE BEACH</h2>
-                <p>Scroll down for tracks</p>
+                <img src="assets/volleynet.svg" class="beach-volleynet" alt="Volleyball net" />
+                <img src="assets/volleyball.svg" class="beach-volleyball" alt="Volleyball" />
+                <img src="assets/crab 1.svg" class="beach-crab" alt="Crab" />
+                <img src="assets/parasols.svg" class="beach-parasols" alt="Beach parasols" />
+                
+                <div class="beach-intro-text">
+                    <h2>GrizzHacks: The Beach Episode</h2>
+                    <p>GrizzHacks is a 24 hour engineering event that is welcome to all students no matter the level of developer you are. During the 24 hours of the event each team will make a brand new project then present that project to judges and compete for prizes. You are allowed to create anything you would like, but we have specific tracks that you could follow if you can't think of a project. There will be multiple tracks and challenges for you to participate in to win prizes.</p>
+                </div>
             </div>
             <div class="beach-page-2">
-                <h2>CHOOSE YOUR TRACK</h2>
-                <div class="track-container">
-                    <div
-                        class="popout-trigger track-red"
-                        onclick="openModal(this, 1)"
-                        data-title="TRACK 1: RED"
-                        data-content="Content..."
-                    >
-                        TRACK 1 (Red)
+                <h2 class="trackTitle">Choose Your Track</h2>
+                <div class="surfboard-container">
+                    <div class="pink-surfboard popout-trigger">
+                        <img
+                            src="assets/tracks/pink-surfboard.svg"
+                            onclick="openModal(this, 1)"
+                            data-title="AI/ML"
+                            data-content="The AI/ML track is a playground for artificial intelligence and machine learning enthusiasts to showcase how algorithms can transform industries. Centering on discovering algorithms, building smart systems, and applying data science to real world problems. The AI/ML track is the space to innovate, create, and to push boundaries. Dive into the world of smart technology where code comes to life."
+                            alt="Pink Surfboard"
+                        >
+                        <div class="overlay-text">
+                            AI/ML
+                        </div>
                     </div>
-                    <div
-                        class="popout-trigger track-green"
-                        onclick="openModal(this, 2)"
-                        data-title="TRACK 2: GREEN"
-                        data-content="Content..."
-                    >
-                        TRACK 2 (Green)
+                    <div class="popout-trigger green-surfboard">
+                        <img 
+                            src="assets/tracks/green-surfboard.svg"
+                            onclick="openModal(this, 2)"
+                            data-title="Social Good"
+                            data-content="The Social Good track is dedicated to harnessing technology for positive impact. Focusing on finding solutions that address community needs, sustainability challenges, and educational opportunities. The Social Good track is all about using technology to improve lives, protect the environment, and ensure that education and opportunities are accessible to all."
+                            alt="Green Surfboard"
+                        >
+                        <div class="overlay-text">
+                            Social Good
+                        </div>
                     </div>
-                    <div
-                        class="popout-trigger track-blue"
-                        onclick="openModal(this, 3)"
-                        data-title="TRACK 3: BLUE"
-                        data-content="Content..."
-                    >
-                        TRACK 3 (Blue)
+                    <div class="popout-trigger purple-surfboard">
+                        <img
+                            src="assets/tracks/lilac-surfboard.svg"
+                            onclick="openModal(this, 3)"
+                            data-title="Fintech"
+                            data-content="The Fintech track merges finance with the latest tech to streamline and secure money matters for everyone. It's about redefining financial interactions for the digital age, making them more accessible and user-friendly."
+                            alt="Lilac Surfboard"
+                        >
+                        <div class="overlay-text">
+                            Fintech
+                        </div>
                     </div>
-                    <div
-                        class="popout-trigger track-purple"
-                        onclick="openModal(this, 4)"
-                        data-title="TRACK 4: PURPLE"
-                        data-content="Content..."
-                    >
-                        TRACK 4 (Purple)
+                    <div class="popout-trigger teal-surfboard">
+                        <img 
+                            src="assets/tracks/teal-surfboard.svg"
+                            onclick="openModal(this, 4)"
+                            data-title="Hell's Kitchen"
+                            data-content="Secret Track :)"
+                            alt="Teal Surfboard"
+                        >
+                        <div class="overlay-text">
+                            Hell's Kitchen
+                        </div>
                     </div>
                 </div>
             </div>
@@ -191,73 +216,25 @@
                 </div>
                 </div>
                 <div class="panel-bridge">
-                    <div class="bridge-container">
-                        <div class="plank-dummy"></div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 1)"
-                            data-title="Q1"
-                            data-content="A1..."
-                        >
-                            Question 1
+                    <!-- Bridge supports (fixed, not affected by scroll) -->
+                    <img src="assets/bridge-support.svg" class="bridge-support bridge-support-left" alt="Bridge Support" />
+                    <img src="assets/bridge-support.svg" class="bridge-support bridge-support-right" alt="Bridge Support" />
+                    
+                    <div class="bridge-scroll-container">
+                        <div class="bridge-container">
+                            <!-- Placeholder plank at top (shows bottom quarter) -->
+                            <div class="plank-placeholder plank-placeholder-top">
+                                <img src="assets/bridge-plank.svg" class="bridge-plank-img" alt="Bridge Plank" />
+                            </div>
+                            
+                            <!-- Planks loaded from data/faq.json -->
+                            <div id="bridge-planks"></div>
+                            
+                            <!-- Placeholder plank at bottom (shows top quarter) -->
+                            <div class="plank-placeholder plank-placeholder-bottom">
+                                <img src="assets/bridge-plank.svg" class="bridge-plank-img" alt="Bridge Plank" />
+                            </div>
                         </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 2)"
-                            data-title="Q2"
-                            data-content="A2..."
-                        >
-                            Question 2
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 3)"
-                            data-title="Q3"
-                            data-content="A3..."
-                        >
-                            Question 3
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 4)"
-                            data-title="Q4"
-                            data-content="A4..."
-                        >
-                            Question 4
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 5)"
-                            data-title="Q5"
-                            data-content="A5..."
-                        >
-                            Question 5
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 6)"
-                            data-title="Q6"
-                            data-content="A6..."
-                        >
-                            Question 6
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 7)"
-                            data-title="Q7"
-                            data-content="A7..."
-                        >
-                            Question 7
-                        </div>
-                        <div
-                            class="plank-btn"
-                            onclick="openModal(this, 8)"
-                            data-title="Q8"
-                            data-content="A8..."
-                        >
-                            Question 8
-                        </div>
-                        <div class="plank-dummy"></div>
                     </div>
                 </div>
             </div>
@@ -294,6 +271,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
+        <script src="js/beach.js"></script>
         <script src="js/main.js"></script>
         <script src="js/intro.js"></script>
         <script src="js/bridge.js"></script>

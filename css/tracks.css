@@ -1,0 +1,47 @@
+.trackTitle {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 40px;
+    color: rgba(42, 27, 6, 0.768);
+}
+
+.surfboard-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Text Colors */
+.pink-surfboard {
+    text-align: center;
+    color: rgba(184, 33, 71, 0.768);
+}
+.green-surfboard {
+    text-align: center;
+    color: rgba(35, 75, 29, 0.768);
+}
+.purple-surfboard {
+    text-align: center;
+    color: rgba(53, 26, 79, 0.768);
+}
+.teal-surfboard {
+    text-align: center;
+    color: rgba(20, 61, 60, 0.768);
+}
+
+.overlay-text {
+    position: absolute; /* Position text over the image */
+    top: 37%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* center */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 27px;
+    text-align: center;
+    
+    padding: 10px;
+    filter: drop-shadow(-5px 7px 4px rgba(0, 0, 0, 0.2));
+    pointer-events: none;
+
+}
+
