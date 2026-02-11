@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const trigger = document.querySelector(".suitcase-zoom-trigger");
   const backoutBtn = document.querySelector(".passport-backout-btn");
   const suitcase = document.querySelector("#scene-jungle .suitcase");
+  const sceneJungle = document.querySelector("#scene-jungle");
   const plane = document.querySelector("#scene-jungle .plane");
   const passportBg = document.querySelector(".passport-background");
   const leftPage = document.querySelector(".passport-page-left");
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     !trigger ||
     !backoutBtn ||
     !suitcase ||
+    !sceneJungle ||
     !plane ||
     !passportBg ||
     !leftPage ||
@@ -33,6 +35,54 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeFlipUnderlay = null;
   const FLIP_OUT_DURATION = 0.22;
   const FLIP_IN_DURATION = 0.26;
+  const isMobileViewport = () => window.matchMedia("(max-width: 768px)").matches;
+
+  function createElement(tag, className, textContent) {
+    const element = document.createElement(tag);
+    if (className) {
+      element.className = className;
+    }
+    if (textContent) {
+      element.textContent = textContent;
+    }
+    return element;
+  }
+
+  const overlayRoot = createElement("div", "passport-text-overlay");
+  const uiOverlayRoot = createElement("div", "passport-ui-overlay");
+  const createOverlayBox = () => {
+    const box = createElement("div", "passport-text-box");
+    const photoFrame = createElement("div", "passport-text-box-photo-frame");
+    const photo = createElement("img", "passport-text-box-photo");
+    photo.alt = "";
+    photoFrame.appendChild(photo);
+    const name = createElement("p", "passport-text-box-name");
+    const team = createElement("p", "passport-text-box-team");
+    const link = createElement("a", "passport-text-box-link", "LinkedIn");
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    box.appendChild(photoFrame);
+    box.appendChild(name);
+    box.appendChild(team);
+    box.appendChild(link);
+    overlayRoot.appendChild(box);
+    return { box, photoFrame, photo, name, team, link };
+  };
+  const overlayLeft = createOverlayBox();
+  const overlayRight = createOverlayBox();
+  const overlayPrevBtn = createElement("button", "passport-overlay-nav passport-overlay-nav-prev", "<");
+  const overlayNextBtn = createElement("button", "passport-overlay-nav passport-overlay-nav-next", ">");
+  const overlayIndex = createElement("div", "passport-overlay-index");
+  const overlayBackoutBtn = createElement("button", "passport-overlay-backout", "Back out");
+  overlayPrevBtn.type = "button";
+  overlayNextBtn.type = "button";
+  overlayBackoutBtn.type = "button";
+  uiOverlayRoot.appendChild(overlayPrevBtn);
+  uiOverlayRoot.appendChild(overlayNextBtn);
+  uiOverlayRoot.appendChild(overlayIndex);
+  uiOverlayRoot.appendChild(overlayBackoutBtn);
+  sceneJungle.appendChild(overlayRoot);
+  sceneJungle.appendChild(uiOverlayRoot);
 
   passportBg.style.perspective = "800px";
   passportBg.style.transformStyle = "preserve-3d";
@@ -42,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const setNavVisibility = (visible) => {
-    const opacity = visible ? "1" : "0";
-    const pointerEvents = visible ? "auto" : "none";
+    const opacity = "0";
+    const pointerEvents = "none";
     prevBtn.style.opacity = opacity;
     nextBtn.style.opacity = opacity;
     pageIndex.style.opacity = opacity;
@@ -51,10 +101,124 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.style.pointerEvents = pointerEvents;
   };
 
+  const isBlankString = (value) => typeof value !== "string" || value.trim() === "";
+  const isPageEmpty = (pageData) =>
+    !pageData ||
+    (isBlankString(pageData.name) &&
+      isBlankString(pageData.team) &&
+      isBlankString(pageData.picture) &&
+      isBlankString(pageData.linkedin));
+
+  const setOverlayBoxContent = (overlayBox, pageData) => {
+    const safeData = pageData || {};
+    overlayBox.name.textContent = safeData.name || "";
+    overlayBox.team.textContent = safeData.team || "";
+    const picture = typeof safeData.picture === "string" ? safeData.picture.trim() : "";
+    if (picture) {
+      overlayBox.photo.src = picture;
+      overlayBox.photoFrame.style.visibility = "visible";
+    } else {
+      overlayBox.photo.removeAttribute("src");
+      overlayBox.photoFrame.style.visibility = "hidden";
+    }
+
+    if (isPageEmpty(safeData)) {
+      overlayBox.link.removeAttribute("href");
+      overlayBox.link.classList.add("is-missing");
+      overlayBox.link.setAttribute("aria-disabled", "true");
+      overlayBox.link.tabIndex = -1;
+      overlayBox.link.style.display = "none";
+      return;
+    }
+
+    overlayBox.link.style.display = "inline-block";
+
+    const linkedin = typeof safeData.linkedin === "string" ? safeData.linkedin.trim() : "";
+    const hasLinkedinUrl = /^https?:\/\//i.test(linkedin);
+    overlayBox.link.textContent = "LinkedIn";
+    if (hasLinkedinUrl) {
+      overlayBox.link.href = linkedin;
+      overlayBox.link.classList.remove("is-missing");
+      overlayBox.link.setAttribute("aria-disabled", "false");
+      overlayBox.link.tabIndex = 0;
+    } else {
+      overlayBox.link.removeAttribute("href");
+      overlayBox.link.classList.add("is-missing");
+      overlayBox.link.setAttribute("aria-disabled", "true");
+      overlayBox.link.tabIndex = -1;
+    }
+  };
+
+  const positionOverlayBox = (overlayBox, sourcePage) => {
+    const rect = sourcePage.getBoundingClientRect();
+    const sceneRect = sceneJungle.getBoundingClientRect();
+    overlayBox.box.style.left = `${rect.left - sceneRect.left}px`;
+    overlayBox.box.style.top = `${rect.top - sceneRect.top}px`;
+    overlayBox.box.style.width = `${rect.width}px`;
+    overlayBox.box.style.height = `${rect.height}px`;
+  };
+
+  const updateOverlayPositions = () => {
+    if (!isZoomed) {
+      return;
+    }
+    positionOverlayBox(overlayLeft, leftPage);
+    positionOverlayBox(overlayRight, rightPage);
+    positionOverlayControl(overlayPrevBtn, prevBtn);
+    positionOverlayControl(overlayNextBtn, nextBtn);
+    positionOverlayControl(overlayIndex, pageIndex, false);
+    positionOverlayControl(overlayBackoutBtn, backoutBtn, false);
+  };
+
+  const positionOverlayControl = (overlayEl, sourceEl, matchSize = true) => {
+    const rect = sourceEl.getBoundingClientRect();
+    const sceneRect = sceneJungle.getBoundingClientRect();
+    overlayEl.style.left = `${rect.left - sceneRect.left}px`;
+    overlayEl.style.top = `${rect.top - sceneRect.top}px`;
+    if (matchSize) {
+      overlayEl.style.width = `${rect.width}px`;
+      overlayEl.style.height = `${rect.height}px`;
+    } else {
+      overlayEl.style.width = "auto";
+      overlayEl.style.height = "auto";
+    }
+  };
+
+  const showOverlay = () => {
+    overlayRoot.classList.add("active");
+    uiOverlayRoot.classList.add("active");
+    updateNavState();
+    updateOverlayPositions();
+    // Reposition after paint to avoid stale rects during zoom completion.
+    requestAnimationFrame(() => {
+      updateOverlayPositions();
+      requestAnimationFrame(updateOverlayPositions);
+    });
+  };
+
+  const hideOverlay = () => {
+    overlayRoot.classList.remove("active");
+    uiOverlayRoot.classList.remove("active");
+  };
+
+  const updateOverlayContent = () => {
+    const spread = spreads[currentSpreadIndex];
+    if (!spread || !spread.left || !spread.right) {
+      setOverlayBoxContent(overlayLeft, null);
+      setOverlayBoxContent(overlayRight, null);
+      return;
+    }
+    setOverlayBoxContent(overlayLeft, getPageDataForElement(spread, leftPage));
+    setOverlayBoxContent(overlayRight, getPageDataForElement(spread, rightPage));
+    overlayIndex.textContent = `${currentSpreadIndex + 1} / ${spreads.length}`;
+  };
+
   const setZoomState = (nextZoomed) => {
     isZoomed = nextZoomed;
     suitcase.classList.toggle("is-zoomed", isZoomed);
     setNavVisibility(isZoomed && spreads.length > 1);
+    const zoomScale = isMobileViewport() ? 2.2 : 4;
+    const zoomY = isMobileViewport() ? 110 : 220;
 
     gsap.to(plane, {
       duration: 0.9,
@@ -68,22 +232,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.to(suitcase, {
       duration: 0.9,
-      scale: isZoomed ? 8 : 1,
+      scale: isZoomed ? zoomScale : 1,
       x: 0,
-      y: isZoomed ? 220 : 0,
+      y: isZoomed ? zoomY : 0,
       ease: "power2.inOut",
+      onComplete: () => {
+        if (isZoomed) {
+          updateOverlayContent();
+          showOverlay();
+          updateOverlayPositions();
+        } else {
+          hideOverlay();
+        }
+      },
     });
-  };
 
-  const createElement = (tag, className, textContent) => {
-    const element = document.createElement(tag);
-    if (className) {
-      element.className = className;
-    }
-    if (textContent) {
-      element.textContent = textContent;
-    }
-    return element;
+    hideOverlay();
   };
 
   const renderPage = (target, pageData) => {
@@ -110,12 +274,20 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.appendChild(team);
     }
 
-    if (pageData.linkedin) {
-      const linkedin = createElement("a", "passport-card-link", "LinkedIn");
-      linkedin.href = pageData.linkedin;
-      linkedin.target = "_blank";
-      linkedin.rel = "noopener noreferrer";
-      wrapper.appendChild(linkedin);
+    if (!isPageEmpty(pageData)) {
+      const hasLinkedinUrl =
+        typeof pageData.linkedin === "string" &&
+        /^https?:\/\//i.test(pageData.linkedin.trim());
+      if (hasLinkedinUrl) {
+        const linkedin = createElement("a", "passport-card-link", "LinkedIn");
+        linkedin.href = pageData.linkedin.trim();
+        linkedin.target = "_blank";
+        linkedin.rel = "noopener noreferrer";
+        wrapper.appendChild(linkedin);
+      } else {
+        const linkedinMissing = createElement("span", "passport-card-link is-missing", "LinkedIn");
+        wrapper.appendChild(linkedinMissing);
+      }
     }
 
     target.appendChild(wrapper);
@@ -126,8 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
     pageIndex.textContent = `${currentSpreadIndex + 1} / ${total}`;
     prevBtn.disabled = currentSpreadIndex === 0;
     nextBtn.disabled = currentSpreadIndex >= total - 1;
-    prevBtn.style.opacity = prevBtn.disabled ? "0.5" : isZoomed && total > 1 ? "1" : "0";
-    nextBtn.style.opacity = nextBtn.disabled ? "0.5" : isZoomed && total > 1 ? "1" : "0";
+    prevBtn.style.opacity = "0";
+    nextBtn.style.opacity = "0";
+    pageIndex.style.opacity = "0";
+    prevBtn.style.pointerEvents = "none";
+    nextBtn.style.pointerEvents = "none";
+    overlayPrevBtn.disabled = prevBtn.disabled;
+    overlayNextBtn.disabled = nextBtn.disabled;
+    overlayPrevBtn.style.opacity = prevBtn.disabled ? "0.75" : isZoomed && total > 1 ? "1" : "0";
+    overlayNextBtn.style.opacity = nextBtn.disabled ? "0.75" : isZoomed && total > 1 ? "1" : "0";
+    overlayIndex.style.opacity = isZoomed && total > 1 ? "1" : "0";
   };
 
   const renderSpread = (index) => {
@@ -139,6 +319,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPage(leftPage, spread.right);
     renderPage(rightPage, spread.left);
     updateNavState();
+    updateOverlayContent();
+    updateOverlayPositions();
   };
 
   const getPageDataForElement = (spread, pageElement) => {
@@ -160,6 +342,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     isAnimating = true;
+    if (isZoomed) {
+      hideOverlay();
+    }
     const nextSpread = spreads[nextIndex];
     const turningPage = direction > 0 ? leftPage : rightPage;
     const restingPage = direction > 0 ? rightPage : leftPage;
@@ -231,6 +416,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 activeFlipUnderlay = null;
               }
               gsap.set([leftPage, rightPage], { zIndex: 1, rotateY: 0 });
+              if (isZoomed) {
+                updateOverlayContent();
+                showOverlay();
+                updateOverlayPositions();
+              }
             });
             isAnimating = false;
           },
@@ -307,4 +497,31 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   loadPassportData();
+
+  window.addEventListener("resize", () => {
+    if (isZoomed) {
+      updateOverlayContent();
+      updateOverlayPositions();
+    }
+  });
+
+  overlayNextBtn.addEventListener("click", () => {
+    if (!isZoomed) {
+      return;
+    }
+    animateSpreadChange(currentSpreadIndex + 1, 1);
+  });
+
+  overlayPrevBtn.addEventListener("click", () => {
+    if (!isZoomed) {
+      return;
+    }
+    animateSpreadChange(currentSpreadIndex - 1, -1);
+  });
+
+  overlayBackoutBtn.addEventListener("click", () => {
+    if (isZoomed) {
+      setZoomState(false);
+    }
+  });
 });

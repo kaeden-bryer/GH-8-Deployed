@@ -19,8 +19,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 180px;
-    height: 180px;
+    width: 360px;
+    height: 360px;
     background-image: url("../assets/jungle/Suitcase.svg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -34,10 +34,10 @@
     position: absolute;
     top: 50%;
     left: 27%;
-    width: 90px;
-    height: 65px;
+    width: 180px;
+    height: 130px;
     background-color: #1e66d0;
-    border-radius: 12px;
+    border-radius: 24px;
     transform: translate(-50%, -50%) rotate(90deg);
     z-index: 2;
 }
@@ -45,16 +45,16 @@
 .suitcase .passport-page {
     position: absolute;
     top: 50%;
-    width: 40px;
-    height: 48px;
+    width: 80px;
+    height: 96px;
     background-color: #f5f8ff;
-    border-radius: 6px;
+    border-radius: 12px;
     transform: translateY(-50%);
     transform-origin: center;
 }
 
 .suitcase .passport-card {
-    padding: 3px;
+    padding: 9px 6px 6px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -68,8 +68,8 @@
 .suitcase .passport-card-photo-frame {
     width: 52%;
     aspect-ratio: 4 / 5;
-    margin: 0 auto 2px;
-    border-radius: 3px;
+    margin: 0 auto 4px;
+    border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -81,7 +81,7 @@
 }
 
 .suitcase .passport-card-name {
-    margin: 2px 0 1px;
+    margin: 4px 0 2px;
     font-size: 0.2rem;
     line-height: 1.1;
     color: #0d3d8a;
@@ -104,26 +104,147 @@
     text-decoration: underline;
 }
 
+.suitcase .passport-card-link.is-missing {
+    color: #6f88b6;
+    text-decoration: none;
+    cursor: default;
+}
+
+.passport-text-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.passport-text-overlay.active {
+    opacity: 1;
+}
+
+.passport-text-box {
+    position: absolute;
+    padding: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.passport-text-box-photo-frame {
+    width: 52%;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto 4px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.passport-text-box-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.passport-text-box-name {
+    margin: 0 0 1px;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    color: #0d3d8a;
+    font-weight: 700;
+}
+
+.passport-text-box-team {
+    margin: 0;
+    font-size: 1.28rem;
+    line-height: 1.2;
+    color: #10295a;
+}
+
+.passport-text-box-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 1.12rem;
+    line-height: 1.15;
+    color: #0d3d8a;
+    text-decoration: underline;
+    pointer-events: auto;
+}
+
+.passport-text-box-link.is-missing {
+    color: #6f88b6;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.passport-ui-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.passport-ui-overlay.active {
+    opacity: 1;
+}
+
+.passport-ui-overlay .passport-overlay-nav,
+.passport-ui-overlay .passport-overlay-backout {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #0d3d8a;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.passport-ui-overlay .passport-overlay-nav {
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.passport-ui-overlay .passport-overlay-index {
+    position: absolute;
+    color: #000000;
+    font-size: 1.1rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.passport-ui-overlay .passport-overlay-backout {
+    color: #000000;
+    font-size: 2.2rem;
+    line-height: 1.1;
+}
+
 .suitcase .passport-page-left {
-    left: 6px;
+    left: 12px;
 }
 
 .suitcase .passport-page-right {
-    right: 6px;
+    right: 12px;
 }
 
 .suitcase .passport-nav {
     position: absolute;
-    top: 2px;
-    width: 6px;
-    height: 6px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
     padding: 0;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     background: transparent;
     color: #0d3d8a;
     font-family: inherit;
-    font-size: 0.12rem;
+    font-size: 0.24rem;
     font-weight: 700;
     line-height: 1;
     display: flex;
@@ -137,19 +258,19 @@
 }
 
 .suitcase .passport-nav-prev {
-    right: 2px;
+    right: 4px;
 }
 
 .suitcase .passport-nav-next {
-    left: 2px;
+    left: 4px;
 }
 
 .suitcase .passport-page-index {
     position: absolute;
-    left: 50%;
-    bottom: 1px;
+    left: 47%;
+    bottom: 2px;
     transform: translateX(-50%) rotate(-180deg);
-    font-size: 0.16rem;
+    font-size: 0.55rem;
     color: #e7f0ff;
     z-index: 6;
     opacity: 0;
@@ -159,7 +280,7 @@
 .suitcase .passport-backout-btn {
     position: absolute;
     left: 51%;
-    top: 1px;
+    top: 2px;
     bottom: auto;
     transform: translateX(-50%) rotate(-180deg);
     z-index: 5;
@@ -169,7 +290,7 @@
     background: transparent;
     color: #000000;
     font-family: inherit;
-    font-size: 0.20rem;
+    font-size: 0.55rem;
     font-weight: 700;
     line-height: 1.1;
     display: flex;
@@ -181,9 +302,30 @@
     transition: opacity 0.2s ease;
 }
 
+.suitcase.is-zoomed .passport-card-name {
+    opacity: 0;
+}
+
+.suitcase .passport-card-name,
+.suitcase .passport-card-team,
+.suitcase .passport-card-link {
+    opacity: 0;
+}
+
+.suitcase.is-zoomed .passport-card-team {
+    opacity: 0;
+}
+
+.suitcase.is-zoomed .passport-card-link {
+    opacity: 0;
+}
+
+.suitcase.is-zoomed .passport-card-photo-frame,
+.suitcase.is-zoomed .passport-nav,
+.suitcase.is-zoomed .passport-page-index,
 .suitcase.is-zoomed .passport-backout-btn {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .suitcase .suitcase-zoom-trigger {
@@ -195,35 +337,66 @@
     align-items: center;
     justify-content: center;
     z-index: 4;
-    padding: 14px 18px;
-    border: 2px solid #0d3d8a;
-    border-radius: 6px;
+    padding: 28px 36px;
+    border: 4px solid #0d3d8a;
+    border-radius: 12px;
     background: #ffffff;
     color: #0d3d8a;
     font-family: inherit;
-    font-size: 0.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
     text-align: center;
     cursor: pointer;
-    width: 90px;
-    height: 45px;
+    width: 180px;
+    height: 90px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @media (max-width: 768px) {
     .suitcase .suitcase-zoom-trigger {
-        top: 120%;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%) rotate(-90deg);
+        transform: translateY(-50%) rotate(-90deg);
     }
 
     .suitcase .suitcase-zoom-trigger:hover {
-        transform: translateX(-50%) rotate(-90deg) scale(1.03);
+        transform: translateY(-50%) rotate(-90deg) scale(1.03);
     }
 
     .suitcase .passport-backout-btn {
         left: 50%;
-        top: 2px;
+        top: 4px;
         bottom: auto;
     }
+
+    .suitcase .passport-page-index {
+        font-size: 0.5rem;
+    }
+
+    .suitcase .passport-backout-btn {
+        font-size: 0.5rem;
+    }
+
+    .passport-ui-overlay .passport-overlay-index {
+        font-size: 1rem;
+    }
+
+    .passport-ui-overlay .passport-overlay-backout {
+        font-size: 2rem;
+    }
+
+    .passport-text-box-name {
+        font-size: 1.1rem;
+    }
+
+    .passport-text-box-team {
+        font-size: 0.88rem;
+    }
+
+    .passport-text-box-link {
+        margin-top: 1.2rem;
+        font-size: 0.76rem;
+    }
 }
+
+
