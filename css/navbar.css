@@ -1,118 +1,35 @@
-/* Navbar button (burger menu) */
 .navbar {
-    position: fixed; /* Always visible at the top-left */
-    top: 20px; /* adjust if needed */
+    position: fixed;
+    top: 20px;
     left: 20px;
-    z-index: 9999; /* Ensure it's always on top */
-}
-
-/* Burger menu button */
-.nav-toggle {
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    z-index: 99999; /* Make sure it stays above everything */
-}
-
-.nav-toggle-bars {
-    width: 30px;
-    height: 3px;
-    background-color: black;
-    position: relative;
-    transition: 0.3s;
-}
-
-.nav-toggle-bars::before,
-.nav-toggle-bars::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background-color: black;
-    transition: 0.3s;
-}
-
-.nav-toggle-bars::before {
-    top: -8px;
-}
-
-.nav-toggle-bars::after {
-    bottom: -8px;
-}
-
-/* Active state (when the menu is open, turn the burger into an X) */
-body.nav-open .nav-toggle-bars::before {
-    top: 0;
-    transform: rotate(45deg);
-}
-
-body.nav-open .nav-toggle-bars::after {
-    bottom: 0;
-    transform: rotate(-45deg);
-}
-
-/* Drawer menu (hidden by default) */
-.nav-drawer {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Hidden off-screen */
-    width: 250px;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    padding-top: 80px; /* Make space for burger */
-    z-index: 9998;
-    overflow-y: auto;
-}
-
-/* When the menu is open, slide it in */
-body.nav-open .nav-drawer {
-    transform: translateX(0); /* Slide into view */
-}
-
-/* Navigation links */
-.nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-left: 20px;
-}
-
-.nav-links .nav-link {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
+    background-color: #80EF80;
+    color: white;
     padding: 10px;
-    transition: 0.3s background-color ease;
+    z-index: 9999;
+    border-radius: 50px;
 }
 
-.nav-links .nav-link:hover {
-    background-color: #f0f0f0;
+.nav-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none; /* Removes bullet points */
 }
 
-/* Backdrop (to close the menu when clicked outside) */
-.nav-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9997;
+.nav-links li a {
+    display: block;
+    color: #244924;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
-body.nav-open .nav-backdrop {
-    opacity: 1;
-    pointer-events: auto;
+.navbar-links.active {
+    display: flex; 
 }
 
-/* Close the menu when clicking on the backdrop */
-body.nav-open {
-    overflow: hidden; /* Prevent scrolling of the body */
+.toggle-nav {
+    display: none;
 }
