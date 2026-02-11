@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/schedule.css" />
         <link rel="stylesheet" href="css/jungle.css" />
         <link rel="stylesheet" href="css/tracks.css"/>
+        <link rel="stylesheet" href="css/navbar.css">
 
     </head>
     <body>
@@ -25,6 +26,25 @@
                 <h1 id="modalTitle" style="margin-top: 0">Title</h1>
                 <div id="modalContent">Content goes here...</div>
             </div>
+        </div>
+
+        <div class="navbar">
+            <button class="nav-toggle" id="navToggle" aria-controls="navDrawer" aria-expanded="false">
+                <span class="nav-toggle-bars"></span>
+            </button>
+
+            <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+                <nav class="nav-links">
+                    <a href="#about-us" class="nav-link">About Us</a>
+                    <a href="#tracks" class="nav-link">Tracks</a>
+                    <a href="#schedule" class="nav-link">Schedule</a>
+                    <a href="#sponsors" class="nav-link">Sponsors</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#scene-jungle" class="nav-link">Team</a>
+                </nav>
+            </div>
+            
+            <div class="nav-backdrop" id="navBackdrop"></div>
         </div>
 
         <section id="scene-intro" class="full-screen">
@@ -50,7 +70,7 @@
         </section>
 
         <section id="scene-beach">
-            <div class="beach-page-1">
+            <div class="beach-page-1" id="about-us">
                 <!-- Text section -->
                 <div class="beach-text-section">
                     <div class="beach-intro-text">
@@ -69,7 +89,7 @@
                     <img src="assets/parasols.svg" class="beach-parasols" alt="Beach parasols" />
                 </div>
             </div>
-            <div class="beach-page-2">
+            <div class="beach-page-2" id="tracks">
                 <h2 class="trackTitle">Choose Your Track:</h2>
                 <div class="surfboard-container">
                     <div class="pink-surfboard popout-trigger">
@@ -122,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="schedule">
+            <div class="schedule" id="schedule">
                 <h2 class="schedule-title">Schedule</h2>
                 <div class="towel-grid">
                     <div class="towel towel--blue">
@@ -211,6 +231,7 @@
                 <div
                     class="panel-river flex-center"
                     style="flex-direction: column"
+                    id="sponsors"
                 >
                 <h1 style="">Sponsors!</h1>
                 <div class="boat-grid">
@@ -223,7 +244,7 @@
                   <div class="boat onestream bob" ></div>
                 </div>
                 </div>
-                <div class="panel-bridge">
+                <div class="panel-bridge" id="faq">
                     <!-- Bridge supports (fixed, not affected by scroll) -->
                     <img src="assets/bridge-support.svg" class="bridge-support bridge-support-left" alt="Bridge Support" />
                     <img src="assets/bridge-support.svg" class="bridge-support bridge-support-right" alt="Bridge Support" />
@@ -285,5 +306,6 @@
         <script src="js/bridge.js"></script>
         <script src="js/schedule.js"></script>
         <script src="js/jungle.js"></script>
+        <script src="js/navbar.js"></script>
     </body>
 </html>
