@@ -2,7 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap");
 
 #scene-intro {
-    background-color: #0277bd;
+    background: linear-gradient(
+        to bottom,
+        #0277bd 80%,
+        #4fc3f7 85%,
+        #ffcc80 100%
+    );
     height: 100vh;
     display: flex;
     justify-content: center;

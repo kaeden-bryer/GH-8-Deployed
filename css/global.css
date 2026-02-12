@@ -5,7 +5,7 @@ html {
     width: 100%;
     overflow-x: hidden;
     background-color: #0d0d0d;
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Quicksand', sans-serif;
     color: white;
 }
 
@@ -27,6 +27,16 @@ html {
 }
 
 /* modal system */
+
+#modalTitle {
+    font-size: 40px;
+}
+
+#modalContent {
+    font-size: 22px;
+    font-weight: 350;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -51,7 +61,7 @@ html {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 40%;
+    width: 35%;
     background: #fff;
     color: #333;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
@@ -88,6 +98,18 @@ html {
     background: none;
     border: none;
     font-weight: bold;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .modal-panel {
+        width: 100%;
+    }
+
+    #modalContent {
+        font-size: 18px;
+        font-weight: 400;
+    }
 }
 
 /* PRELOADER STYLES */
