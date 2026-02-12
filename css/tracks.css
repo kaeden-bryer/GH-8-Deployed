@@ -1,6 +1,6 @@
 .trackTitle {
     font-family: 'Quicksand', sans-serif;
-    font-size: 40px;
+    font-size: 3rem;
     color: rgba(42, 27, 6, 0.768);
 }
 
@@ -45,3 +45,21 @@
 
 }
 
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+    .trackTitle {
+        font-size: 35px;
+    }
+
+    .surfboard-container {
+        width: 100%;
+    }
+
+    .overlay-text {
+        font-size: 19px;
+        top: 38.5%
+
+    }
+}

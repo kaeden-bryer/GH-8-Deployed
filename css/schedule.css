@@ -8,12 +8,13 @@
     align-items: center;
     gap: 20px;
     /* add padding to prevent cutting off on small screens */
-    padding: 60px 0;
+    padding: 0 0 190px;
 }
 
 .schedule-title {
     font-family: 'Quicksand', sans-serif;
     font-size: 3rem;
+    color: rgba(42, 27, 6, 0.768);
     margin: 0;
 }
 

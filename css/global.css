@@ -61,7 +61,7 @@ html {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 40%;
+    width: 35%;
     background: #fff;
     color: #333;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
@@ -98,6 +98,18 @@ html {
     background: none;
     border: none;
     font-weight: bold;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .modal-panel {
+        width: 100%;
+    }
+
+    #modalContent {
+        font-size: 18px;
+        font-weight: 400;
+    }
 }
 
 /* PRELOADER STYLES */

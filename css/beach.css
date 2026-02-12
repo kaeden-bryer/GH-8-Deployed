@@ -19,6 +19,27 @@
     /* padding-top: 100px; */
 }
 
+/* Wrapper divs -- transparent on desktop */
+.beach-text-section,
+.beach-decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.beach-text-section > *,
+.beach-decorations > *,
+.beach-decorations img {
+    pointer-events: auto;
+}
+
+.beach-volley-group {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+}
+
 /* Beach scene elements */
 .beach-volleynet {
     position: absolute;
@@ -44,11 +65,11 @@
 
 .beach-crab {
     position: absolute;
-    right: 5%;
-    top: 8%;
-    width: clamp(100px, 12vw, 180px);
+    right: 10%;
+    top: 2%;
+    width: clamp(70px, 8vw, 120px);
     height: auto;
-    transform: perspective(800px) rotateY(-8deg) rotateX(4deg);
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg) rotateZ(45deg);
     will-change: transform;
 }
 
@@ -75,13 +96,13 @@
 .beach-intro-text h2 {
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 1rem;
-    color: #4a4a4a;
+    color: rgba(30, 19, 4, 0.768);
 }
 
 .beach-intro-text p {
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     line-height: 1.6;
-    color: #4a4a4a;
+    color: rgba(30, 19, 4, 0.768);
 }
 
 .beach-page-2 {
@@ -95,7 +116,7 @@
     flex-direction: column;
 
     /* add padding so content never hits the very edge on small screens */
-    padding: 40px 20px;
+    padding: 130px 20px;
     box-sizing: border-box;
 }
 
@@ -110,7 +131,7 @@
 }
 
 .popout-trigger {
-    padding: 20px;
+    padding: 22px;
     border-radius: 8px;
     color: white;
     font-weight: bold;
@@ -129,4 +150,93 @@
     right: 20px;
     font-size: 0.8em;
     opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    /* Switch page to flex column */
+    .beach-page-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 0 20px;
+        overflow: visible;
+    }
+
+    /* Remove absolute positioning from wrappers */
+    .beach-text-section,
+    .beach-decorations {
+        position: relative;
+        inset: auto;
+        width: 100%;
+    }
+
+    /* --- Text section --- */
+    .beach-text-section {
+        order: 1;
+        padding: 0 5%;
+    }
+    .beach-intro-text {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 10px;
+    }
+    .beach-intro-text h2 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+    .beach-intro-text p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    /* --- Decorations row --- */
+    .beach-decorations {
+        order: 2;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        padding: 20px 5%;
+        gap: 10px;
+    }
+
+    .beach-volley-group {
+        position: relative;
+        width: auto;
+        height: auto;
+        flex: 0 0 auto;
+    }
+    .beach-volleynet {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        height: 30vh;
+        max-height: 200px;
+    }
+    .beach-volleyball {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        width: clamp(30px, 8vw, 50px);
+    }
+
+    .beach-crab {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: clamp(60px, 18vw, 100px);
+    }
+
+    .beach-parasols {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: clamp(150px, 50vw, 300px);
+    }
 }
