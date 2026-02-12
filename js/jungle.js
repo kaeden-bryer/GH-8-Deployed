@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.querySelector(".passport-nav-prev");
   const nextBtn = document.querySelector(".passport-nav-next");
   const pageIndex = document.querySelector(".passport-page-index");
+  const trees = document.querySelectorAll(".jungle-tree");
 
   if (
     !trigger ||
@@ -64,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: isZoomed ? 0 : 1,
       ease: "power2.inOut",
       transformOrigin: "50% 50%",
+    });
+
+    gsap.to(trees, {
+      duration: 0.9,
+      scale: isZoomed ? 1.5 : 1,
+      opacity: isZoomed ? 0 : 1,
+      x: isZoomed ? (i, target) => target.classList.contains("tree-right") ? 600 : -600 : 0,
+      pointerEvents: isZoomed ? "none" : "auto",
+      ease: "power2.inOut",
     });
 
     gsap.to(suitcase, {
