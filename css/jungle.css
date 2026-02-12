@@ -3,6 +3,30 @@
     overflow: hidden;
 }
 
+.jungle-tree {
+    position: absolute;
+    height: auto;
+    z-index: 1;
+
+    --safe-zone: 110px;
+    --offset-x: 0px;
+    --offset-y: 0px;
+    --width: 30%;
+
+    width: var(--width);
+    bottom: var(--offset-y);
+}
+
+.tree-left{
+    right: calc(50% + var(--safe-zone) + var(--offset-x));
+    left: auto;
+}
+
+.tree-right {
+    left: calc(50% + var(--safe-zone) + var(--offset-x));
+    right: auto;
+}
+
 .plane {
     position: absolute;
     left: -320px;
