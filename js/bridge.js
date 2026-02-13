@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // horizontal scroll
   let horizontalTimeline = gsap.timeline({
     scrollTrigger: {
+      id: "hscroll",
       trigger: "#horizontal-scroll-wrapper",
       start: "top top",
       end: "+=2000",
