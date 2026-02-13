@@ -155,7 +155,17 @@
         height: 100%;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
+        overscroll-behavior: auto; 
         touch-action: pan-y;
+    }
+
+    .stripe-layer * {
+        touch-action: none;
+    }
+
+    /* iOS fix i have no idea why it works it just does okay */
+    .towel-window,
+    .stripe-layer {
+        transform: translateZ(0);
     }
 }
