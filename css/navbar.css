@@ -5,11 +5,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #80EF80;
+    background: rgb(255, 255, 248);
     color: white;
     padding: 10px;
     z-index: 999;
     border-radius: 50px;
+    font-weight: 550;
 }
 
 .nav-links ul {
@@ -21,7 +22,7 @@
 
 .nav-links li a {
     display: block;
-    color: #244924;
+    color: #3d2d0c;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
@@ -40,7 +41,7 @@
         background: transparent;
         border: none;
         font-size: 22px;
-        color: #244924;
+        color: #3d2d0c;
         cursor: pointer;
         padding: 6px 10px;
     }
@@ -52,7 +53,7 @@
         top: calc(100% + 10px);
         left: 0;
         width: min(86vw, 280px);
-        background-color: #80EF80;
+        background-color: rgb(255, 255, 248);
         border-radius: 18px;
         padding: 8px;
         /* overflow: hidden; */
