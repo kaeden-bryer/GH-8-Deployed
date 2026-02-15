@@ -4,7 +4,6 @@ html {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  /* background-color: #0d0d0d; */
   background-image: url("../assets/beach-tiles.jpg");
   background-repeat: repeat;
   font-family: "Quicksand", sans-serif;

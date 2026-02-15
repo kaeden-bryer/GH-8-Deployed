@@ -18,7 +18,7 @@
   position: relative;
   /* use viewport width to ensure container fills screen width */
   width: 100vw;
-  height: auto;
+  /* height: auto; */
 
   /* hardware acceleration to prevent animation stutter */
   will-change: transform;
@@ -35,23 +35,31 @@
 
 .boat-content {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  pointer-events: auto;
 }
 
 .frog-element {
   position: absolute;
   /* responsive sizing so frog stays relative to boat width */
   width: 7%;
-  min-width: 120px; /* base size for small screens */
+  min-height: 80px; /* base size for small screens */
+  max-height: 300px; /* limit size for large monitors */
+  min-width: 80px; /* base size for small screens */
   max-width: 300px; /* limit size for large monitors */
   left: 30%;
   top: 36%;
+  background-image: url(../assets/frog.svg);
+  background-repeat: no-repeat;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+.frog-element a {
+  font-size: 0.3rem;
+  margin-left: 2rem;
+  color: #316418;
 }
 
 /* --- title styles --- */
