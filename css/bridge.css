@@ -334,7 +334,6 @@
   font-weight: bold;
   text-align: center;
   width: 90%;
-  padding: 10px;
   box-sizing: border-box;
   color: #ffffff;
 }
@@ -374,4 +373,20 @@
 /* Bottom placeholder - show only top quarter */
 .plank-placeholder-bottom .bridge-plank-img {
   top: 0;
+}
+
+@media (max-width: 520px) {
+  /* give the planks more room */
+  .bridge-scroll-container {
+    width: min(92vw, 520px);
+    margin: 0 auto;
+  }
+
+  /* optional: make text scale down a bit on small screens */
+  .bridge-question {
+    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+  }
+  .bridge-answer {
+    font-size: clamp(0.85rem, 3.6vw, 1rem);
+  }
 }
