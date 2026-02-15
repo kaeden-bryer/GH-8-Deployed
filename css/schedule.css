@@ -155,7 +155,7 @@
         height: 100%;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: auto; 
+        overscroll-behavior: contain; /* Prevent scroll chaining to parent */
         touch-action: pan-y;
     }
 
@@ -167,5 +167,51 @@
     .towel-window,
     .stripe-layer {
         transform: translateZ(0);
+    }
+
+    /* Arrow button container in footer */
+    .towel-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        pointer-events: auto;
+        padding-bottom: 8px; /* Move buttons up from edge */
+    }
+
+    .scroll-arrow {
+        background: rgba(255, 255, 255, 0.8);
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        color: #0b0b0b;
+        transition: all 0.2s;
+        pointer-events: auto;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .scroll-arrow:active {
+        transform: scale(0.9);
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .scroll-arrow.disabled {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+/* Hide arrow buttons on desktop */
+@media (min-width: 769px) {
+    .scroll-arrow {
+        display: none;
     }
 }

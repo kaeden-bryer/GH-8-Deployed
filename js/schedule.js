@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const scrollers = document.querySelectorAll(".stripe-layer");
+    const isMobile = window.matchMedia("max-width: 768px").matches;
 
     scrollers.forEach((el) => {
         let isMouseInside = false;
@@ -7,6 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener(
             "wheel",
             (e) => {
+
+                // no scroll logic for mobile
+                if (isMobile) {
+                    return;
+                }
+
                 const delta = e.deltaY;
 
                 // const atTop = el.scrollTop <= 0;
