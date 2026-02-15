@@ -1,131 +1,146 @@
 .schedule {
-    /* removed fixed 100vh so it grows with vertical stacking */
-    min-height: 100vh;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    /* add padding to prevent cutting off on small screens */
-    padding: 0 0 190px;
+  /* removed fixed 100vh so it grows with vertical stacking */
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* add padding to prevent cutting off on small screens */
+  padding: 0 0 190px;
 }
 
 .schedule-title {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 3rem;
-    color: rgba(42, 27, 6, 0.768);
-    margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 3rem;
+  color: rgba(42, 27, 6, 0.768);
+  margin: 0;
 }
 
 .towel-grid {
-    width: min(94vw);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(240px, 1fr));
-    gap: 28px;
-    align-items: center;
-    justify-items: center;
+  width: min(94vw);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 28px;
+  align-items: center;
+  justify-items: center;
+}
+
+.towel-shadow {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 5;
+  overflow: visible;
+  transition: filter 0.25s ease;
+  filter: none;
+}
+
+.towel-shadow:hover {
+  filter: drop-shadow(-6px 6px 20px rgba(0, 0, 0, 0.12));
 }
 
 .towel {
-    width: 100%;
-    height: 90%;
-    max-width: 520px;
-    aspect-ratio: 3 / 5;
-    position: relative;
-    overflow: visible;
+  width: 100%;
+  height: 90%;
+  max-width: 520px;
+  aspect-ratio: 3 / 5;
+  position: relative;
+  overflow: visible;
+  background: rgba(255, 0, 0, 0.2);
 }
 
 .towel--blue {
-    background: url("../assets/schedule/Blue_Towel.svg") center / contain
-        no-repeat;
-    mask-image: url("../assets/schedule/Blue_Towel.svg");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
+  background: url("../assets/schedule/Blue_Towel.svg") center / contain
+    no-repeat;
+  mask-image: url("../assets/schedule/Blue_Towel.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  filter: drop-shadow(-5px 7px 4px rgba(0, 0, 0, 0.2));
 }
 
 .towel--red {
-    background: url("../assets/schedule/Red_Towel.svg") center / contain
-        no-repeat;
-    mask-image: url("../assets/schedule/Red_Towel.svg");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
+  background: url("../assets/schedule/Red_Towel.svg") center / contain no-repeat;
+  mask-image: url("../assets/schedule/Red_Towel.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  filter: drop-shadow(-5px 7px 4px rgba(0, 0, 0, 0.2));
 }
 
 .towel-header,
 .towel-footer,
 .towel-window {
-    position: absolute;
-    left: 0;
-    right: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .towel-header {
-    top: 0;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand', sans-serif;    
-    padding-top: clamp(1.5vw, 7vw, 20px);
-    font-size: clamp(16px, 2.2vw, 24px);
-    font-weight: 700;
-    color: #0b0b0b;
-    pointer-events: none;
+  top: 0;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+  padding-top: clamp(1.5vw, 7vw, 20px);
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 700;
+  color: #0b0b0b;
+  pointer-events: none;
 }
 
 .towel-footer {
-    bottom: 0;
-    height: 15%;
-    pointer-events: none;
+  bottom: 0;
+  height: 15%;
+  pointer-events: none;
 }
 
 .towel-window {
-    top: 17%;
-    bottom: 15%;
-    overflow: hidden;
+  top: 17%;
+  bottom: 15%;
+  overflow: hidden;
 }
 
 /* stripes go edge-to-edge */
 .stripe-layer {
-    height: 100%;
-    overflow-y: auto;
-    scrollbar-width: none;
-    pointer-events: auto;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  pointer-events: auto;
 }
 
 .towel-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Quicksand', sans-serif;
-    font-size: larger;
-    color: #0b0b0b;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Quicksand", sans-serif;
+  font-size: larger;
+  color: #0b0b0b;
 }
 
 /* row stripes that scroll with rows */
 .towel-table tr:nth-child(odd) td {
-    background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .towel-table tr:nth-child(even) td {
-    background: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0);
 }
 
 .time {
-    display: inline-block;
-    width: 92px;
-    opacity: 0.9;
+  display: inline-block;
+  width: 92px;
+  opacity: 0.9;
 }
 
 .row-text {
-    padding: 1vw 5vw;
+  padding: 1vw 5vw;
 }
 
 .stripe-layer::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 }
 
 /* mobile view */

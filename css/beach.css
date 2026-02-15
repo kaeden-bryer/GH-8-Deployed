@@ -1,242 +1,243 @@
 #scene-beach {
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
-    /* moved gradient to intro.css for better transition */
-    background: #ffcc80;
-    color: black;
-    position: relative;
-    /* flex column ensures children stack cleanly without collapsing margins */
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  /* moved gradient to intro.css for better transition */
+  background-image: url("../assets/beach-tile.jpg");
+  background-repeat: repeat;
+  color: black;
+  position: relative;
+  /* flex column ensures children stack cleanly without collapsing margins */
+  display: flex;
+  flex-direction: column;
 }
 
 .beach-page-1 {
-    padding-top: 30px;
-    height: 100vh;
-    position: relative; 
-    overflow: hidden;
-    /* padding-top: 100px; */
+  padding-top: 30px;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  /* padding-top: 100px; */
 }
 
 /* Wrapper divs -- transparent on desktop */
 .beach-text-section,
 .beach-decorations {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 .beach-text-section > *,
 .beach-decorations > *,
 .beach-decorations img {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 .beach-volley-group {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 30%;
-    height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
 }
 
 /* Beach scene elements */
 .beach-volleynet {
-    position: absolute;
-    left: 4%;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 90%;
-    width: auto;
-    object-fit: contain;
-    object-position: left center;
-    /* padding: 5px; */
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
+  /* padding: 5px; */
 }
 
 .beach-volleyball {
-    position: absolute;
-    left: 12%;
-    bottom: 12%;
-    width: clamp(60px, 6vw, 100px);
-    height: auto;
-    cursor: pointer;
-    will-change: transform;
+  position: absolute;
+  left: 12%;
+  bottom: 12%;
+  width: clamp(60px, 6vw, 100px);
+  height: auto;
+  cursor: pointer;
+  will-change: transform;
 }
 
 .beach-crab {
-    position: absolute;
-    right: 10%;
-    top: 2%;
-    width: clamp(70px, 8vw, 120px);
-    height: auto;
-    transform: perspective(800px) rotateY(0deg) rotateX(0deg) rotateZ(45deg);
-    will-change: transform;
+  position: absolute;
+  right: 10%;
+  top: 2%;
+  width: clamp(70px, 8vw, 120px);
+  height: auto;
+  transform: perspective(800px) rotateY(0deg) rotateX(0deg) rotateZ(45deg);
+  will-change: transform;
 }
 
 .beach-parasols {
-    position: absolute;
-    right: -2%;
-    bottom: -2%;
-    width: clamp(450px, 55vw, 750px);
-    height: auto;
-    pointer-events: none;
+  position: absolute;
+  right: -2%;
+  bottom: -2%;
+  width: clamp(450px, 55vw, 750px);
+  height: auto;
+  pointer-events: none;
 }
 
 .beach-intro-text {
-    position: absolute;
-    left: 38%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 620px;
-    padding: 0 20px;
-    pointer-events: none;
+  position: absolute;
+  left: 38%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 620px;
+  padding: 0 20px;
+  pointer-events: none;
 }
 
 .beach-intro-text h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    margin-bottom: 1rem;
-    color: rgba(30, 19, 4, 0.768);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+  color: rgba(30, 19, 4, 0.768);
 }
 
 .beach-intro-text p {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    line-height: 1.6;
-    color: rgba(30, 19, 4, 0.768);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+  color: rgba(30, 19, 4, 0.768);
 }
 
 .beach-page-2 {
-    /* use min-height instead of height */
-    min-height: 100vh;
-    height: auto;
+  /* use min-height instead of height */
+  min-height: 100vh;
+  height: auto;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    /* add padding so content never hits the very edge on small screens */
-    padding: 130px 20px;
-    box-sizing: border-box;
+  /* add padding so content never hits the very edge on small screens */
+  padding: 130px 20px;
+  box-sizing: border-box;
 }
 
 /* ensure the surfboard container doesn't cause horizontal overflow or overlap */
 .surfboard-container {
-    width: 80%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px 0; /* breathing room */
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0; /* breathing room */
 }
 
 .popout-trigger {
-    padding: 22px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    filter: drop-shadow(-6px 8px 4px rgba(0, 0, 0, 0.1));
-    transition: transform 0.2s;
-    text-align: left;
-    position: relative;
+  padding: 22px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  filter: drop-shadow(-6px 8px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.2s;
+  text-align: left;
+  position: relative;
 }
 
 .popout-trigger:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 .popout-trigger::after {
-    position: absolute;
-    right: 20px;
-    font-size: 0.8em;
-    opacity: 0.7;
+  position: absolute;
+  right: 20px;
+  font-size: 0.8em;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
-    /* Switch page to flex column */
-    .beach-page-1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        min-height: 100vh;
-        padding: 40px 0 20px;
-        overflow: visible;
-    }
+  /* Switch page to flex column */
+  .beach-page-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0 20px;
+    overflow: visible;
+  }
 
-    /* Remove absolute positioning from wrappers */
-    .beach-text-section,
-    .beach-decorations {
-        position: relative;
-        inset: auto;
-        width: 100%;
-    }
+  /* Remove absolute positioning from wrappers */
+  .beach-text-section,
+  .beach-decorations {
+    position: relative;
+    inset: auto;
+    width: 100%;
+  }
 
-    /* --- Text section --- */
-    .beach-text-section {
-        order: 1;
-        padding: 0 5%;
-    }
-    .beach-intro-text {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        max-width: 100%;
-        text-align: center;
-        padding: 0 10px;
-    }
-    .beach-intro-text h2 {
-        font-size: clamp(1.4rem, 5vw, 2rem);
-    }
-    .beach-intro-text p {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
-    }
+  /* --- Text section --- */
+  .beach-text-section {
+    order: 1;
+    padding: 0 5%;
+  }
+  .beach-intro-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .beach-intro-text h2 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .beach-intro-text p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
 
-    /* --- Decorations row --- */
-    .beach-decorations {
-        order: 2;
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        padding: 20px 5%;
-        gap: 10px;
-    }
+  /* --- Decorations row --- */
+  .beach-decorations {
+    order: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 20px 5%;
+    gap: 10px;
+  }
 
-    .beach-volley-group {
-        position: relative;
-        width: auto;
-        height: auto;
-        flex: 0 0 auto;
-    }
-    .beach-volleynet {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        height: 30vh;
-        max-height: 200px;
-    }
-    .beach-volleyball {
-        position: absolute;
-        left: 50%;
-        bottom: 5%;
-        width: clamp(30px, 8vw, 50px);
-    }
+  .beach-volley-group {
+    position: relative;
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+  }
+  .beach-volleynet {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    height: 30vh;
+    max-height: 200px;
+  }
+  .beach-volleyball {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    width: clamp(30px, 8vw, 50px);
+  }
 
-    .beach-crab {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        width: clamp(60px, 18vw, 100px);
-    }
+  .beach-crab {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: clamp(60px, 18vw, 100px);
+  }
 
-    .beach-parasols {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: clamp(150px, 50vw, 300px);
-    }
+  .beach-parasols {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: clamp(150px, 50vw, 300px);
+  }
 }
