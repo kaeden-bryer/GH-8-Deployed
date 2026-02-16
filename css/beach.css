@@ -3,7 +3,7 @@
   min-height: 100vh;
   height: auto;
   /* moved gradient to intro.css for better transition */
-  background-image: url("../assets/beach-tile.jpg");
+  background-image: url("../assets/beach-tiles-updated.jpg");
   background-repeat: repeat;
   color: black;
   position: relative;
