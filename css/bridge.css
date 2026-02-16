@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url("../assets/sponsors/river.svg");
+  background-image: url("../assets/sponsors/river.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -180,198 +180,213 @@
 
 /* Bridge supports - fixed position, not affected by scroll */
 .bridge-support {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: auto;
-    z-index: 5;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: auto;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .bridge-support-left {
-    left: 25%;
-    transform: translateX(-50%);
+  left: 25%;
+  transform: translateX(-50%);
 }
 
 .bridge-support-right {
-    left: 75%;
-    transform: translateX(-50%);
+  left: 75%;
+  transform: translateX(-50%);
 }
 
 /* Scrollable bridge container */
 .bridge-scroll-container {
-    width: 50%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 20;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 20;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
 .bridge-scroll-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+  display: none; /* Chrome/Safari */
 }
 
 /* BRIDGE STYLES */
 
 /* Bridge supports - fixed position, not affected by scroll */
 .bridge-support {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: auto;
-    z-index: 5;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: auto;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .bridge-support-left {
-    left: 25%;
-    transform: translateX(-50%);
+  left: 25%;
+  transform: translateX(-50%);
 }
 
 .bridge-support-right {
-    left: 75%;
-    transform: translateX(-50%);
+  left: 75%;
+  transform: translateX(-50%);
 }
 
 /* Scrollable bridge container */
 .bridge-scroll-container {
-    width: 50%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 20;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 20;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
 .bridge-scroll-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+  display: none; /* Chrome/Safari */
 }
 
 .bridge-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transform: rotate(-1deg);
-    padding: 20px 0;
-    box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: rotate(-1deg);
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
 /* Wrapper for FAQ planks – gap here creates space between each plank */
 #bridge-planks {
-    font-family: "Rubik", sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* Plank flip container */
 .bridge-plank-container {
-    position: relative;
-    width: 100%;
-    perspective: 1000px;
-    cursor: pointer;
+  position: relative;
+  width: 100%;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
 .bridge-plank-container:hover {
-    transform: scale(1.03);
-    transition: transform 0.2s ease;
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
 }
 
 /* Inner wrapper for 3D flip */
 .plank-inner {
-    position: relative;
-    width: 100%;
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
 }
 
 .bridge-plank-container.flipped .plank-inner {
-    transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 /* Front and back faces */
 .plank-front,
 .plank-back {
-    width: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    overflow: hidden;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .plank-front {
-    position: relative;
+  position: relative;
 }
 
 .plank-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotateX(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(180deg);
 }
 
 .plank-front .bridge-plank-img,
 .plank-back .bridge-plank-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+  width: 100%;
+  height: auto;
+  display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .bridge-question,
 .bridge-answer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    width: 90%;
-    padding: 10px;
-    box-sizing: border-box;
-    color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+  color: #ffffff;
 }
 
 .bridge-question {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .bridge-answer {
-    font-size: 1rem;
-    font-weight: 200;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 /* Placeholder planks at top and bottom - show only a quarter */
 .plank-placeholder {
-    position: relative;
-    width: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    /* Plank aspect ratio is 390:61, quarter height = 61/4 = 15.25 relative to 390 width
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  /* Plank aspect ratio is 390:61, quarter height = 61/4 = 15.25 relative to 390 width
     /* aspect-ratio: 390 / 15.25 ≈ 25.57 */
-    aspect-ratio: 8;
+  aspect-ratio: 8;
 }
 
 .plank-placeholder .bridge-plank-img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    left: 0;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
 }
 
 /* Top placeholder - show only bottom quarter */
 .plank-placeholder-top .bridge-plank-img {
-    bottom: 0;
+  bottom: 0;
 }
 
 /* Bottom placeholder - show only top quarter */
 .plank-placeholder-bottom .bridge-plank-img {
-    top: 0;
+  top: 0;
+}
+
+@media (max-width: 520px) {
+  /* give the planks more room */
+  .bridge-scroll-container {
+    width: min(92vw, 520px);
+    margin: 0 auto;
+  }
+
+  /* optional: make text scale down a bit on small screens */
+  .bridge-question {
+    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+  }
+  .bridge-answer {
+    font-size: clamp(0.85rem, 3.6vw, 1rem);
+  }
 }
