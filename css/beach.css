@@ -154,6 +154,11 @@
 }
 
 @media (max-width: 768px) {
+  /* Adjusts shells on mobile */
+  #scene-beach {
+     background-position: -100px 20px;
+  }
+
   /* Switch page to flex column */
   .beach-page-1 {
     display: flex;
