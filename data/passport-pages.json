@@ -24,13 +24,13 @@
       "right": {
         "picture": "assets/jungle/coords/rylee.png",
         "name": "Rylee Marshall",
-        "team": "Mentor Team",
-        "linkedin": "Secretary, Logistics"
+        "team": "Secretary, Logistics",
+        "linkedin": ""
       }
     },
     {
       "left": {
-        "picture": "assets/parasols.svg",
+        "picture": "assets/jungle/coords/travis.png",
         "name": "Travis Boyd",
         "team": "Tech",
         "linkedin": ""
@@ -93,7 +93,7 @@
       },
       "right": {
         "picture": "assets/jungle/coords/ruben.png",
-        "name": "Ruben Yutuc",
+        "name": "Rueben Vincent Yutuc",
         "team": "Sponsorship",
         "linkedin": ""
       }
@@ -108,7 +108,7 @@
       "right": {
         "picture": "assets/jungle/coords/michael.png",
         "name": "Michael Medulla",
-        "team": "Sponsorship Team",
+        "team": "Logistics",
         "linkedin": ""
       }
     },
