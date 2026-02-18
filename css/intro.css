@@ -92,6 +92,12 @@
   letter-spacing: 2px;
 }
 
+.coming-date {
+  margin-top: 0.25rem;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
 /* desktop layout */
 @media (min-width: 769px) {
   .intro-title-container {
