@@ -161,3 +161,30 @@ html {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+.bottom-coc-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #1b5e20;
+  padding: 16px 20px 40px;
+  box-sizing: border-box;
+}
+
+.bottom-coc-link a {
+  display: inline-block;
+  background: #ffffff;
+  color: #0f3d5b;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 10px 18px;
+  border: 2px solid #0f3d5b;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bottom-coc-link a:hover,
+.bottom-coc-link a:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
