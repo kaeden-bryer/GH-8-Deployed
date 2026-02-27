@@ -1,32 +1,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// scroll normalization
-ScrollTrigger.normalizeScroll(true);
-
-// ignore mobile resize
-ScrollTrigger.config({ ignoreMobileResize: true });
-
-// 1. INITIALIZE LENIS
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom ease for smoother stop
-  smoothWheel: true,
+const lenisManager = window.LenisManager.getInstance({
+  wheelMultiplier: 2.0,
 });
 
-// Make lenis globally accessible
-window.lenis = lenis;
+lenisManager.bindGSAP(gsap, ScrollTrigger);
 
-lenis.on("scroll", ScrollTrigger.update);
-
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
-gsap.registerPlugin(ScrollTrigger);
-
-// --- 4. THE "BULLETPROOF" PRELOADER ---
-
+// preloader 
 function initSite() {
   const preloader = document.getElementById("preloader");
   window.scrollTo(0, 0);
@@ -77,15 +57,14 @@ window.openModal = function (element, index) {
 
   void modalPanel.offsetWidth;
   modalOverlay.classList.add("active");
-  lenis.stop(); // stop scroll
+  lenisManager.stop(); // stop scroll
 };
 
 window.closeModal = function () {
   modalOverlay.classList.remove("active");
-  lenis.start(); // resume scroll
+  lenisManager.start();
 };
 
 modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
 });
-
