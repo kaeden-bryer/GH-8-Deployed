@@ -6,6 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("active");
   });
 
+  function lenisScrollTo(targetOrY) {
+    const l = window.lenis;
+
+    // If Lenis exists, ensure it's active, then use it
+    if (l && typeof l.scrollTo === "function") {
+      // Lenis v1 has .isStopped, and .start() / .stop()
+      if (l.isStopped && typeof l.start === "function") {
+        l.start();
+      }
+
+      l.scrollTo(targetOrY);
+      return true;
+    }
+
+    return false;
+  }
+
   // close menu on link click (mobile)
   navLinks.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", (e) => {
@@ -23,9 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (st) {
           const y = href === "#sponsors" ? st.start + 2 : st.end - 2;
 
-          if (window.lenis && typeof window.lenis.scrollTo === "function") {
-            window.lenis.scrollTo(y);
-          } else {
+          if (!lenisScrollTo(y)) {
             window.scrollTo({ top: y, behavior: "smooth" });
           }
           return;
@@ -36,9 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = document.querySelector(href);
       if (!target) return;
 
-      if (window.lenis && typeof window.lenis.scrollTo === "function") {
-        window.lenis.scrollTo(target);
-      } else {
+      if (!lenisScrollTo(target)) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
