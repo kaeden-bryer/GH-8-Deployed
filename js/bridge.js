@@ -140,6 +140,17 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("data/faq.json")
       .then((res) => res.json())
       .then((faq) => {
+        const longestAnswerIndices = new Set(
+          faq
+            .map((item, index) => ({
+              index,
+              length: ((item.a || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim()).length,
+            }))
+            .sort((a, b) => b.length - a.length)
+            .slice(0, 2)
+            .map((entry) => entry.index)
+        );
+
         faq.forEach((item, i) => {
           const plank = document.createElement("div");
           plank.className = "bridge-plank-container";
@@ -157,7 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
           plank.querySelector(".bridge-question").textContent = item.q;
-          plank.querySelector(".bridge-answer").innerHTML = item.a;
+          const answerEl = plank.querySelector(".bridge-answer");
+          answerEl.innerHTML = item.a;
+          if (longestAnswerIndices.has(i)) {
+            answerEl.classList.add("long-answer");
+          }
           bridgePlanksContainer.appendChild(plank);
         });
       })
