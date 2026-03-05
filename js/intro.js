@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rotation: 0,
             ease: 'power2.inOut',
             force3D: true,
-            duration: 1.5,
+            duration: 0,
         });
 
         // fade in the title text
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '.intro-title-container',
             {
                 opacity: 1,
-                duration: 1,
+                duration: 0,
                 ease: 'power1.out',
             },
             '<80%',
