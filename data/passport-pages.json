@@ -120,10 +120,10 @@
         "linkedin": "https://www.linkedin.com/in/patrick-mcinerney-8a0082388/"
       },
       "right": {
-        "picture": "",
-        "name": "",
-        "team": "",
-        "linkedin": ""
+        "picture": "assets/jungle/coords/evan.png",
+        "name": "Evan Pardon",
+        "team": "CTF Creation",
+        "linkedin": "https://www.linkedin.com/in/evan-pardon/"
       }
     }
   ]
