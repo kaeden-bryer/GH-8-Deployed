@@ -1,139 +1,152 @@
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
+document.addEventListener('DOMContentLoaded', () => {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
 
-  let mm = gsap.matchMedia();
+    window.scrollTo(0, 0);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrambleTextPlugin);
+    ScrollTrigger.clearScrollMemory();
 
-  // placement coordinates for the frog within the asset
-  const frogX = 30;
-  const frogY = 36;
+    let mm = gsap.matchMedia();
 
-  // --- desktop animation ---
-  mm.add("(min-width: 769px)", () => {
-    // sizing values
-    const startScale = 4;
-    const midScale = 0.7; // zoom level for showing the full boat
+    // --- desktop animation ---
+    mm.add('(min-width: 769px)', () => {
+        const midScale = 0.7; // zoom level for showing the full boat
+        const midX = -10;
+        const midY = 0;
 
-    // calculate position to center view on the frog
-    const startX = (50 - frogX) * startScale;
-    const startY = (50 - frogY) * startScale;
+        // zoom out from frog to half boat
+        gsap.to('.intro-scale-wrapper', {
+            scale: midScale,
+            xPercent: midX,
+            yPercent: midY,
+            rotation: 0,
+            ease: 'power2.inOut',
+            force3D: true,
+            duration: 1.5,
+        });
 
-    // shift slightly left to accommodate text on the right
-    const midX = -10;
-    const midY = 0;
+        // fade in the title text
+        gsap.to(
+            '.intro-title-container',
+            {
+                opacity: 1,
+                duration: 1,
+                ease: 'power1.out',
+            },
+            '<80%',
+        );
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#scene-intro",
-        start: "top top",
-        end: "+=5000", // scroll duration for the intro sequence
-        scrub: 1,
-        pin: true,
-      },
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#scene-intro',
+                start: '1px top',
+                pin: true,
+                pinSpacing: true,
+                scrub: 1,
+            },
+        });
+
+        // zoom out
+        tl.to('.intro-scale-wrapper', {
+            scale: 0.25,
+            xPercent: 10,
+            yPercent: -20,
+            ease: 'power1.inOut',
+            duration: 1,
+        })
+            // fade out intro title
+            .to(
+                '.intro-title-container',
+                {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power1.out',
+                },
+                '<',
+            )
+            // fade in register title
+            .to('.register-title', {
+                opacity: 1,
+                duration: 1,
+                ease: 'power1.out',
+                onComplete: () => startFrogSurf(), // trigger frog surf here
+            });
     });
 
-    // zoom out from frog to half boat
-    tl.fromTo(
-      ".intro-scale-wrapper",
-      {
-        scale: startScale,
-        xPercent: startX,
-        yPercent: startY,
-        rotation: 0.01,
-      },
-      {
-        scale: midScale,
-        xPercent: midX,
-        yPercent: midY,
-        rotation: 0,
-        ease: "power2.inOut",
-        force3D: true,
-        duration: 0.7,
-      },
-    )
-      // fade in the title text
-      .to(
-        ".intro-title-container",
-        { opacity: 1, duration: 0.3, ease: "power1.out" },
-        "<80%",
-      )
+    // --- mobile animation ---
+    mm.add('(max-width: 768px)', () => {
+        const midScale = 1;
 
-      // zoom out further to tiny boat off-screen
-      .to(".intro-scale-wrapper", {
-        scale: 0.25,
-        xPercent: 10,
-        yPercent: -20,
-        ease: "power1.inOut",
-        duration: 0.5,
-      })
-      // fade out text as boat shrinks
-      .to(
-        ".intro-title-container",
-        {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<",
-      );
-  });
+        // mobile zoom out
+        gsap.to('.intro-scale-wrapper', {
+            scale: midScale,
+            xPercent: 0,
+            yPercent: 0,
+            rotation: 0,
+            ease: 'power2.inOut',
+            force3D: true,
+            duration: 1,
+        });
 
-  // mobile animation
-  mm.add("(max-width: 768px)", () => {
-    const startScale = 5;
-    const midScale = 1;
+        gsap.to(
+            '.intro-title-container',
+            {
+                opacity: 1,
+                duration: 0.5,
+                ease: 'power1.out',
+            },
+            '<80%',
+        );
 
-    const startX = (50 - frogX) * startScale;
-    const startY = (50 - frogY) * startScale;
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#scene-intro',
+                start: '1px top',
+                scrub: 1,
+                pin: true,
+                pinSpacing: true,
+            },
+        });
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#scene-intro",
-        start: "top top",
-        end: "+=5000",
-        scrub: 1,
-        pin: true,
-      },
+        // mobile shrink
+        tl.to('.intro-scale-wrapper', {
+            scale: 0.2,
+            yPercent: -50,
+            ease: 'power1.inOut',
+            duration: 2,
+        })
+            .to(
+                '.intro-title-container',
+                {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power1.out',
+                },
+                '<',
+            )
+            .to('.register-title', {
+                opacity: 1,
+                duration: 1,
+                ease: 'power1.out',
+            });
     });
 
-    // mobile zoom out
-    tl.fromTo(
-      ".intro-scale-wrapper",
-      {
-        scale: startScale,
-        xPercent: startX,
-        yPercent: startY,
-        rotation: 0.01,
-      },
-      {
-        scale: midScale,
-        xPercent: 0,
-        yPercent: 0,
-        rotation: 0,
-        ease: "power2.inOut",
-        force3D: true,
-        duration: 2,
-      },
-    )
-      .to(
-        ".intro-title-container",
-        { opacity: 1, duration: 0.5, ease: "power1.out" },
-        "<80%",
-      )
+    // --- arrow bounce ---
+    gsap.to('.arrow', {
+        y: 6,
+        duration: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut',
+    });
 
-      // mobile shrink
-      .to(".intro-scale-wrapper", {
-        scale: 0.4,
-        ease: "power1.inOut",
-        duration: 2,
-      })
-      .to(
-        ".intro-title-container",
-        {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<",
-      );
-  });
+    // fade in scroll indicator
+    gsap.from('.scroll-indicator', {
+        opacity: 0,
+        y: 10,
+        duration: 0.6,
+        delay: 1,
+    });
 });
