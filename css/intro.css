@@ -1,123 +1,181 @@
 /* import rubik font */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap');
 
 #scene-intro {
-  background-image: url("../assets/beach_bg.svg");
-  background-size: cover;
-  background-position: end;
-  background-repeat: no-repeat;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
+    background-image: url('../assets/beach_bg.svg');
+    background-size: cover;
+    background-position: end;
+    background-repeat: no-repeat;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.scroll-indicator {
+    position: absolute;
+    left: 75%;
+    transform: translateX(-50%);
+    bottom: -60px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* mouse outline */
+.mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid black;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* scroll wheel */
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: black;
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* arrow under mouse */
+.arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(45deg);
+    margin-top: 8px;
 }
 
 .intro-scale-wrapper {
-  position: relative;
-  /* use viewport width to ensure container fills screen width */
-  width: 100vw;
-  /* height: auto; */
+    position: relative;
+    /* use viewport width to ensure container fills screen width */
+    width: 100vw;
+    /* height: auto; */
 
-  /* hardware acceleration to prevent animation stutter */
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+    /* hardware acceleration to prevent animation stutter */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .boat-bg {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
 }
 
 .boat-content {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  inset: 0;
-  pointer-events: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    inset: 0;
+    pointer-events: auto;
 }
 
-.frog-element {
-  position: absolute;
-  /* responsive sizing so frog stays relative to boat width */
-  width: 7%;
-  min-height: 80px; /* base size for small screens */
-  max-height: 300px; /* limit size for large monitors */
-  min-width: 80px; /* base size for small screens */
-  max-width: 300px; /* limit size for large monitors */
-  left: 30%;
-  top: 36%;
-  background-image: url(../assets/frog.svg);
-  background-repeat: no-repeat;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-.frog-element a {
-  font-size: 0.3rem;
-  margin-left: 2rem;
-  color: #316418;
+.register-title {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+    will-change: opacity;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    /* margin-top: 10px; */
+    letter-spacing: 2px;
+    margin-top: 0.25rem;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    transition: color 0.3s ease; /* smooth color transition */
+    color: #002b5c;
+    cursor: pointer; /* optional, makes it clear it's interactive */
 }
 
-/* --- title styles --- */
+.register-title:hover {
+    color: red;
+}
+
 .intro-title-container {
-  position: absolute;
-  z-index: 10;
-  opacity: 0;
-  /* ignore mouse clicks to prevent blocking interaction below */
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  will-change: opacity;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+    will-change: opacity;
 }
 
 .main-title {
-  font-family: "Rubik", sans-serif;
-  font-weight: 900;
-  font-size: clamp(3rem, 8vw, 10rem);
-  color: #002b5c;
-  margin: 0;
-  line-height: 0.9;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 10rem);
+    color: #002b5c;
+    margin: 0;
+    line-height: 0.9;
 }
 
 .sub-title {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  font-size: clamp(1rem, 2.5vw, 2.5rem);
-  color: #002b5c;
-  /* margin-top: 10px; */
-  letter-spacing: 2px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    color: #002b5c;
+    /* margin-top: 10px; */
+    letter-spacing: 2px;
 }
 
 .coming-date {
-  margin-top: 0.25rem;
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
+    margin-top: 0.25rem;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
 }
 
 /* desktop layout */
 @media (min-width: 769px) {
-  .intro-title-container {
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    text-align: right;
-  }
+    .intro-title-container {
+        top: 50%;
+        right: 10%;
+        transform: translateY(-50%);
+    }
 }
 
 /* mobile layout */
 @media (max-width: 768px) {
-  .intro-title-container {
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-  }
-  .intro-scale-wrapper {
-    width: 150vw; /* zoom in slightly more on mobile for better visibility */
-  }
+    .register-title {
+        top: 30%; /* moves it 10px from the top of the container */
+        margin-top: 0; /* reset margin if needed */
+    }
+    .intro-title-container {
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        width: 100%;
+    }
+    .intro-scale-wrapper {
+        width: 150vw; /* zoom in slightly more on mobile for better visibility */
+    }
+    .scroll-indicator {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -60px;
+    }
 }
