@@ -34,18 +34,24 @@
 /* ---- Two-column content wrapper ---- */
 .beach-content-wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   align-items: flex-start;
   z-index: 10;
   flex: 1;
   padding: 0 3%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Left column: text + bullets */
 .beach-text-section {
   flex: 1 1 55%;
-  min-width: 280px;
-  padding-left: 100px;
+  min-width: min(280px, 100%);
+  padding-left: clamp(0px, 5vw, 100px);
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .beach-intro-paragraph {
@@ -108,11 +114,11 @@
 }
 
 .polaroid-1 {
-  transform: rotate(-3deg);
+  transform: rotate(-8deg);
 }
 
 .polaroid-2 {
-  transform: rotate(4deg);
+  transform: rotate(9deg);
 }
 
 /* ---- Decorations layer ---- */
@@ -250,6 +256,8 @@
   .beach-text-section {
     flex: none;
     width: 100%;
+    min-width: 0;
+    padding-left: 0;
     order: 1;
   }
 
