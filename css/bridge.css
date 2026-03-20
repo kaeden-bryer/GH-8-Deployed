@@ -98,7 +98,8 @@
 }
 
 .boat {
-    width: clamp(140px, 24vw, 280px);
+    /* width: clamp(140px, 24vw, 280px); */
+    width: clamp(200px, 30vw, 380px);
     aspect-ratio: 25 / 8;
     height: auto;
 
@@ -116,6 +117,19 @@
     height: auto;
 
     background-image: url('../assets/sponsors/OUCU_boat.svg');
+}
+
+.SECS {
+    background-image: url('../assets/sponsors/SECS_boat.svg');
+}
+
+.yhc {
+    background-image: url('../assets/sponsors/yhc_boat.svg');
+}
+
+.twentyfourg {
+    background-image: url('../assets/sponsors/24G_boat.svg');
+    transform: translateY(-8px);
 }
 
 .intrepid {
