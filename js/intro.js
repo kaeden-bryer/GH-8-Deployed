@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // fade in register title
             .to('.register-title', {
                 opacity: 1,
+                pointerEvents: 'auto',
                 duration: 1,
                 ease: 'power1.out',
                 onComplete: () => startFrogSurf(), // trigger frog surf here
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             )
             .to('.register-title', {
                 opacity: 1,
+                pointerEvents: 'auto',
                 duration: 1,
                 ease: 'power1.out',
             });
